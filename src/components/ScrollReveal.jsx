@@ -4,27 +4,33 @@ export default function ScrollReveal({
   children, 
   direction = 'up', 
   delay = 0, 
-  duration = 700,
+  duration = 550,
   className = '',
-  distance = 32
+  distance = 20
 }) {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return true;
+    }
+    return false;
+  });
   const elementRef = useRef(null);
 
   useEffect(() => {
+    if (isVisible) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Once visible, disconnect so animation doesn't repeat or jump
           if (elementRef.current) {
             observer.unobserve(elementRef.current);
           }
         }
       },
       {
-        threshold: 0.12,
-        rootMargin: '0px 0px -40px 0px'
+        threshold: 0.04,
+        rootMargin: '0px 0px -10px 0px'
       }
     );
 
@@ -33,7 +39,7 @@ export default function ScrollReveal({
     }
 
     return () => observer.disconnect();
-  }, []);
+  }, [isVisible]);
 
   const getTransform = () => {
     if (isVisible) return 'translate3d(0, 0, 0) scale(1)';

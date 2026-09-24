@@ -14,10 +14,13 @@ export default function ProjectsSection() {
   const [dragOffset, setDragOffset] = useState(0);
   
   const startXRef = useRef(0);
+  const startYRef = useRef(0);
   const currentDeltaRef = useRef(0);
   const hasDraggedRef = useRef(false);
   const isMouseDownRef = useRef(false);
   const isAnimatingRef = useRef(false);
+  const isVerticalScrollRef = useRef(false);
+  const isHorizontalSwipeRef = useRef(false);
   const containerRef = useRef(null);
 
   // STRICTLY THE 3 RESUME PROJECTS (100% GROUNDED, MINIMAL & PROFESSIONAL)
@@ -26,7 +29,7 @@ export default function ProjectsSection() {
       id: 'job-agent',
       number: '01',
       title: 'AI JOB APPLICATION AGENT',
-      period: '2026 – PRESENT',
+      period: '2026 - PRESENT',
       subtitle: 'Autonomous multi-agent job discovery and browser automation system',
       category: 'Agentic AI',
       metricLabel: 'Profile Match Rate',
@@ -201,27 +204,48 @@ export default function ProjectsSection() {
     window.addEventListener('mouseup', handleWindowMouseUp);
   };
 
-  // Touch Drag Handlers (Smooth mobile gesture sliding)
+  // Touch Drag Handlers (Smooth mobile gesture sliding with vertical scroll protection)
   const handleTouchStart = (e) => {
     if (isAnimatingRef.current) return;
     startXRef.current = e.touches[0].clientX;
+    startYRef.current = e.touches[0].clientY;
     currentDeltaRef.current = 0;
     hasDraggedRef.current = false;
+    isVerticalScrollRef.current = false;
+    isHorizontalSwipeRef.current = false;
   };
 
   const handleTouchMove = (e) => {
-    const delta = e.touches[0].clientX - startXRef.current;
-    currentDeltaRef.current = delta;
+    // If vertical page scroll was already locked in, do not intercept
+    if (isVerticalScrollRef.current) return;
 
-    if (!hasDraggedRef.current && Math.abs(delta) > 8) {
-      hasDraggedRef.current = true;
-      setIsDragging(true);
+    const deltaX = e.touches[0].clientX - startXRef.current;
+    const deltaY = e.touches[0].clientY - startYRef.current;
+    const absX = Math.abs(deltaX);
+    const absY = Math.abs(deltaY);
+
+    // Directional lock detection
+    if (!isHorizontalSwipeRef.current && !isVerticalScrollRef.current) {
+      // User is scrolling vertically -> yield to native page scroll immediately
+      if (absY > absX && absY > 7) {
+        isVerticalScrollRef.current = true;
+        return;
+      }
+      // User is swiping horizontally -> engage slide drag
+      if (absX > absY * 1.4 && absX > 10) {
+        isHorizontalSwipeRef.current = true;
+        hasDraggedRef.current = true;
+        setIsDragging(true);
+      } else {
+        return;
+      }
     }
 
-    if (hasDraggedRef.current) {
-      let offset = delta;
-      if ((activeIdx === 0 && delta > 0) || (activeIdx === total - 1 && delta < 0)) {
-        offset = delta * 0.4;
+    if (isHorizontalSwipeRef.current) {
+      currentDeltaRef.current = deltaX;
+      let offset = deltaX;
+      if ((activeIdx === 0 && deltaX > 0) || (activeIdx === total - 1 && deltaX < 0)) {
+        offset = deltaX * 0.35;
       }
       setDragOffset(offset);
     }
@@ -232,7 +256,7 @@ export default function ProjectsSection() {
     setIsDragging(false);
     setDragOffset(0);
 
-    if (hasDraggedRef.current && Math.abs(finalDelta) >= 40) {
+    if (isHorizontalSwipeRef.current && hasDraggedRef.current && Math.abs(finalDelta) >= 40) {
       if (finalDelta < -40) {
         stepToNext();
       } else if (finalDelta > 40) {
@@ -241,6 +265,8 @@ export default function ProjectsSection() {
     }
 
     hasDraggedRef.current = false;
+    isHorizontalSwipeRef.current = false;
+    isVerticalScrollRef.current = false;
     currentDeltaRef.current = 0;
   };
 
@@ -262,14 +288,15 @@ export default function ProjectsSection() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className={`relative w-full h-[100dvh] min-h-[760px] max-h-[1100px] overflow-hidden bg-[#07070c] select-none border-t border-white/[0.08] ${
+      style={{ touchAction: 'pan-y' }}
+      className={`relative w-full min-h-fit lg:h-[100dvh] lg:min-h-[760px] lg:max-h-[1100px] overflow-x-hidden bg-[#07070c] select-none border-t border-white/[0.08] ${
         isDragging ? 'cursor-grabbing' : 'cursor-grab'
       }`}
     >
       {/* ======================================================== */}
       {/* 1. TOP EDITORIAL STATUS BAR                              */}
       {/* ======================================================== */}
-      <div className="absolute top-0 left-0 right-0 z-40 px-6 sm:px-10 md:px-14 lg:px-20 pt-7 sm:pt-8 flex items-center justify-between pointer-events-none">
+      <div className="relative lg:absolute top-0 left-0 right-0 z-40 px-6 sm:px-10 md:px-14 lg:px-20 pt-6 sm:pt-8 pb-3 lg:pb-0 flex items-center justify-between pointer-events-none">
         
         {/* Project Tracker */}
         <div className="flex items-center gap-3">
@@ -300,7 +327,7 @@ export default function ProjectsSection() {
       <button
         onClick={stepToPrev}
         aria-label="Previous Project Slide"
-        className="absolute left-3 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0c0c14]/85 hover:bg-[#ff5500] border border-white/15 hover:border-[#ff5500] text-white flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_0_20px_rgba(255,85,0,0.4)] hover:scale-110 group pointer-events-auto"
+        className="hidden md:flex absolute left-3 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0c0c14]/85 hover:bg-[#ff5500] border border-white/15 hover:border-[#ff5500] text-white items-center justify-center backdrop-blur-md transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_0_20px_rgba(255,85,0,0.4)] hover:scale-110 group pointer-events-auto"
       >
         <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:-translate-x-0.5" />
       </button>
@@ -309,7 +336,7 @@ export default function ProjectsSection() {
       <button
         onClick={stepToNext}
         aria-label="Next Project Slide"
-        className="absolute right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0c0c14]/85 hover:bg-[#ff5500] border border-white/15 hover:border-[#ff5500] text-white flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_0_20px_rgba(255,85,0,0.4)] hover:scale-110 group pointer-events-auto"
+        className="hidden md:flex absolute right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0c0c14]/85 hover:bg-[#ff5500] border border-white/15 hover:border-[#ff5500] text-white items-center justify-center backdrop-blur-md transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_0_20px_rgba(255,85,0,0.4)] hover:scale-110 group pointer-events-auto"
       >
         <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-0.5" />
       </button>
@@ -330,7 +357,7 @@ export default function ProjectsSection() {
           return (
             <div 
               key={project.id}
-              className={`w-full h-full shrink-0 flex flex-col justify-between pt-24 sm:pt-28 pb-20 sm:pb-22 px-6 sm:px-14 md:px-18 lg:px-24 xl:px-28 relative overflow-hidden transition-all duration-700 ease-out ${
+              className={`w-full h-full shrink-0 flex flex-col justify-between pt-6 sm:pt-10 lg:pt-24 pb-8 sm:pb-12 lg:pb-20 px-6 sm:px-14 md:px-18 lg:px-24 xl:px-28 relative transition-all duration-700 ease-out ${
                 isActive ? 'opacity-100 scale-100' : 'opacity-35 scale-[0.98]'
               }`}
             >
@@ -514,10 +541,18 @@ export default function ProjectsSection() {
       {/* ======================================================== */}
       {/* 4. BOTTOM INTERACTIVE SLIDER CONTROLLER                  */}
       {/* ======================================================== */}
-      <div className="absolute bottom-0 left-0 right-0 z-40 px-6 sm:px-10 md:px-14 lg:px-20 py-4 bg-black/75 backdrop-blur-md border-t border-white/[0.08] flex items-center justify-between pointer-events-auto">
+      <div className="relative lg:absolute bottom-0 left-0 right-0 z-40 px-6 sm:px-10 md:px-14 lg:px-20 py-4 bg-black/85 backdrop-blur-md border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-3 pointer-events-auto">
         
-        {/* Clickable Project Indicator Tabs */}
+        {/* Clickable Project Indicator Tabs + Mobile Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
+          <button
+            onClick={stepToPrev}
+            aria-label="Previous Slide"
+            className="md:hidden w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white flex items-center justify-center border border-white/10"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </button>
+
           {projects.map((proj, pIdx) => {
             const isActive = activeIdx === pIdx;
             return (
@@ -538,6 +573,14 @@ export default function ProjectsSection() {
               </button>
             );
           })}
+
+          <button
+            onClick={stepToNext}
+            aria-label="Next Slide"
+            className="md:hidden w-8 h-8 rounded-full bg-white/[0.06] hover:bg-white/[0.12] text-white flex items-center justify-center border border-white/10"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </button>
         </div>
 
         {/* Current Project Index Telemetry & Slide Cue */}

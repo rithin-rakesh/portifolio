@@ -78,7 +78,7 @@ export default function HeroSection({ onOpenResume }) {
         {/* Primary sharp portrait positioned downwards so hair has complete visibility and headroom */}
         <img 
           src="/profile.jpg" 
-          alt="Rithin Rakesh — AI/ML Engineer"
+          alt="Rithin Rakesh · AI/ML Engineer"
           className="relative w-full h-full object-cover object-[55%_4%] sm:object-[55%_5%] md:object-[54%_6%] lg:object-[53%_7%] filter contrast-[1.06] saturate-[1.22] brightness-[1.06]"
         />
 
@@ -204,7 +204,7 @@ export default function HeroSection({ onOpenResume }) {
           transform: `translate3d(0, ${scrollY * 0.02}px, 0)`
         }}
       >
-        <h1 className="font-hero text-[clamp(2.2rem,8.2vw,124px)] tracking-tight leading-none text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] uppercase whitespace-nowrap select-none text-center">
+        <h1 className="font-hero text-[clamp(1.9rem,8vw,124px)] tracking-tight leading-none text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] uppercase whitespace-nowrap select-none text-center">
           RITHIN RAKESH
         </h1>
       </div>

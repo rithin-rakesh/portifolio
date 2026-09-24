@@ -27,7 +27,7 @@ export default function AboutSection() {
         <div className="lg:col-span-7">
           <ScrollReveal direction="up" delay={100}>
             <span className="text-xs font-mono uppercase tracking-[0.22em] text-[#bef264] font-medium block mb-3">
-              ENGINEERING BACKGROUND · 2021 – 2026
+              ENGINEERING BACKGROUND · 2021 - 2026
             </span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-[1.08] text-white tracking-[-0.035em] mb-4 font-bold">
               Building Reliable AI Agents & Neural Systems
@@ -55,7 +55,7 @@ export default function AboutSection() {
           <ScrollReveal direction="up" delay={240}>
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/[0.08]">
               <div>
-                <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight block">2021–25</span>
+                <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight block">2021-25</span>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block mt-1">SRM B.Tech</span>
               </div>
               <div>
@@ -89,7 +89,7 @@ export default function AboutSection() {
               </div>
 
               <blockquote className="font-sans text-base sm:text-lg text-white font-medium leading-relaxed mb-6 italic">
-                “True autonomy in AI isn't generating tokens—it is executing verifiable actions with deterministic state.”
+                “True autonomy in AI isn't generating tokens: it is executing verifiable actions with deterministic state.”
               </blockquote>
 
               <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs text-neutral-400">
@@ -111,7 +111,7 @@ export default function AboutSection() {
                     <span className="text-[#bef264] font-bold text-xs">*</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block">Current Role</span>
                   </div>
-                  <h4 className="font-display text-sm uppercase text-white font-bold tracking-tight">AI Intern — Leniko Solutions</h4>
+                  <h4 className="font-display text-sm uppercase text-white font-bold tracking-tight">AI Intern · Leniko Solutions</h4>
                   <p className="text-xs font-sans text-neutral-400 mt-0.5">LangGraph · NVIDIA NIM · FastAPI</p>
                 </div>
               </div>

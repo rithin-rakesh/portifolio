@@ -56,7 +56,7 @@ export default function AgentWorkflowModal({ isOpen, onClose }) {
             </div>
             <div>
               <h3 className="font-display font-extrabold text-xl md:text-2xl text-white uppercase tracking-tight">
-                AGENTIC AI JOB APPLICATION AGENT — ARCHITECTURE
+                AGENTIC AI JOB APPLICATION AGENT // ARCHITECTURE
               </h3>
               <p className="text-xs font-mono text-[#ff5500] uppercase tracking-wider">
                 FastAPI · LangGraph · NVIDIA NIM · Supabase · Playwright/CDP
