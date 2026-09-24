@@ -25,6 +25,7 @@ export default {
         }
       },
       fontFamily: {
+        poster: ['Anton', 'Bebas Neue', 'Syne', 'sans-serif'],
         display: ['Syne', 'Cabinet Grotesk', 'sans-serif'],
         sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
