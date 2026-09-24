@@ -45,10 +45,10 @@ export default function ResumeModal({ isOpen, onClose }) {
           
           {/* Header */}
           <div className="border-b border-white/10 pb-6">
-            <h1 className="font-display font-black text-3xl md:text-4xl text-white tracking-tight">
+            <h1 className="font-display font-extrabold text-3xl md:text-4xl text-white tracking-tight uppercase">
               RITHIN RAKESH
             </h1>
-            <p className="text-sm font-mono text-[#ff5500] mt-1 font-semibold">
+            <p className="text-sm font-mono text-[#ff5500] mt-1 font-semibold uppercase tracking-wider">
               AI/ML Engineer · Data Science · Agentic Systems
             </p>
 

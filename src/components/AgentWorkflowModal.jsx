@@ -55,11 +55,11 @@ export default function AgentWorkflowModal({ isOpen, onClose }) {
               <Terminal className="w-5 h-5" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-lg md:text-xl text-white">
-                Agentic AI Job Application Agent — Architecture
+              <h3 className="font-display font-extrabold text-xl md:text-2xl text-white uppercase tracking-tight">
+                AGENTIC AI JOB APPLICATION AGENT — ARCHITECTURE
               </h3>
-              <p className="text-xs font-mono text-neutral-400">
-                Python · FastAPI · LangGraph · NVIDIA NIM · Supabase / PostgreSQL · Playwright / CDP
+              <p className="text-xs font-mono text-[#ff5500] uppercase tracking-wider">
+                FastAPI · LangGraph · NVIDIA NIM · Supabase · Playwright/CDP
               </p>
             </div>
           </div>

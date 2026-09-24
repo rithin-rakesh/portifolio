@@ -88,71 +88,7 @@ export default function HeroSection({ onOpenResume }) {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(255,255,255,0.08)_0%,_transparent_60%)] mix-blend-overlay pointer-events-none" />
       </div>
 
-      {/* ======================================================== */}
-      {/* LAYER 2: ELEGANT ORBITAL VECTOR CURVES (Image 2 match)    */}
-      {/* ======================================================== */}
-      <svg 
-        className="absolute inset-0 w-full h-full pointer-events-none z-10 transition-transform duration-700 ease-out" 
-        viewBox="0 0 1440 900" 
-        preserveAspectRatio="none"
-        fill="none" 
-        xmlns="http://www.w3.org/2000/svg"
-        style={{
-          transform: `translate3d(${mousePos.x * -8}px, ${mousePos.y * -8 + scrollY * -0.04 + 14}px, 0)`
-        }}
-      >
-        {/* Main sweeping horizontal arc 1 (Curving through eyes/cheek level) */}
-        <path 
-          d="M -60 480 C 380 290, 1060 290, 1500 480" 
-          stroke="rgba(255, 255, 255, 0.32)" 
-          strokeWidth="1.2" 
-        />
 
-        {/* Counter-sweeping horizontal arc 2 (Intersecting to create lens contour) */}
-        <path 
-          d="M -60 320 C 420 510, 1020 510, 1500 320" 
-          stroke="rgba(255, 255, 255, 0.28)" 
-          strokeWidth="1.1" 
-        />
-
-        {/* Vertical descending orbital arc */}
-        <path 
-          d="M 680 -40 C 720 280, 740 600, 690 940" 
-          stroke="rgba(255, 255, 255, 0.26)" 
-          strokeWidth="1" 
-        />
-
-        {/* Sweeping diagonal trajectory arc */}
-        <path 
-          d="M 40 820 C 380 420, 960 160, 1420 260" 
-          stroke="rgba(255, 255, 255, 0.22)" 
-          strokeWidth="1" 
-        />
-
-        {/* Delicate celestial dashed orbit */}
-        <ellipse 
-          cx="720" 
-          cy="420" 
-          rx="540" 
-          ry="280" 
-          stroke="rgba(255, 255, 255, 0.16)" 
-          strokeWidth="0.9" 
-          strokeDasharray="4 8" 
-        />
-
-        {/* Micro coordinate markers */}
-        <circle cx="720" cy="385" r="3" fill="#ffffff" opacity="0.6" />
-        <circle cx="430" cy="360" r="2.5" fill="#ffffff" opacity="0.5" />
-        <circle cx="1010" cy="360" r="2.5" fill="#ffffff" opacity="0.5" />
-
-        {/* Micro technical labels */}
-        <text x="60" y="465" fill="rgba(255, 255, 255, 0.45)" fontSize="9" fontFamily="monospace" letterSpacing="0.2em">
-          TRAJECTORY // 01
-        </text>
-        <text x="1280" y="465" fill="rgba(255, 255, 255, 0.45)" fontSize="9" fontFamily="monospace" letterSpacing="0.2em">
-          LAT 11°52'N
-        </text>
-      </svg>
 
       {/* ======================================================== */}
       {/* LAYER 3: ENGRAVED TOP NAVIGATION (Edge-to-Edge Canvas)   */}
@@ -164,7 +100,7 @@ export default function HeroSection({ onOpenResume }) {
           href="#home" 
           className="group flex items-center gap-2"
         >
-          <span className="font-poster text-2xl sm:text-3xl md:text-4xl text-white tracking-wide uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] group-hover:opacity-85 transition-opacity">
+          <span className="font-hero text-2xl sm:text-3xl md:text-4xl text-white tracking-wide uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] group-hover:opacity-85 transition-opacity">
             RITHIN
           </span>
         </a>
@@ -186,17 +122,24 @@ export default function HeroSection({ onOpenResume }) {
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-white rounded-full group-hover:w-full transition-all duration-200" />
           </a>
           <a 
-            href="#projects" 
+            href="#experience" 
             className="relative text-white/85 hover:text-white transition-colors duration-200 group py-1"
           >
-            Project
+            Experience
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-white rounded-full group-hover:w-full transition-all duration-200" />
           </a>
           <a 
-            href="#experience" 
+            href="#projects" 
+            className="relative text-white/85 hover:text-white transition-colors duration-200 group py-1"
+          >
+            Projects
+            <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-white rounded-full group-hover:w-full transition-all duration-200" />
+          </a>
+          <a 
+            href="#skills" 
             className="hidden lg:inline-block relative text-white/85 hover:text-white transition-colors duration-200 group py-1"
           >
-            Experience
+            Skills
             <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-white rounded-full group-hover:w-full transition-all duration-200" />
           </a>
           <a 
@@ -243,25 +186,25 @@ export default function HeroSection({ onOpenResume }) {
           </a>
         </div>
 
-        {/* Right Micro-Copy: 3-line Right-Aligned Editorial Statement */}
-        <div className="text-left sm:text-right max-w-[320px] sm:max-w-[380px] md:max-w-[460px]">
-          <p className="text-[10px] sm:text-[11px] md:text-xs font-mono uppercase tracking-[0.16em] text-white/90 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
-            ARCHITECTING PRODUCTION MULTI-AGENT SYSTEMS, AUTONOMOUS WORKFLOWS & HIGH-THROUGHPUT DETERMINISTIC RETRIEVAL ENGINES.
+        {/* Right Micro-Copy: Minimal Editorial Statement */}
+        <div className="text-left sm:text-right max-w-[320px] sm:max-w-[380px] md:max-w-[420px]">
+          <p className="text-[10.5px] sm:text-[11px] md:text-[12px] font-sans font-medium text-white/95 leading-relaxed tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
+            Architecting production multi-agent systems, autonomous automation & deterministic AI retrieval.
           </p>
         </div>
 
       </div>
 
       {/* ======================================================== */}
-      {/* LAYER 5: MASSIVE DISPLAY HEADLINE (Bottom Edge-to-Edge)   */}
+      {/* LAYER 5: MASSIVE DISPLAY HEADLINE (Centered & Contained)  */}
       {/* ======================================================== */}
       <div 
-        className="relative z-30 w-full px-2 sm:px-4 md:px-8 text-center pointer-events-none overflow-hidden transition-transform duration-700 ease-out"
+        className="relative z-30 w-full px-4 sm:px-6 md:px-10 lg:px-14 flex items-center justify-center text-center pointer-events-none transition-transform duration-700 ease-out"
         style={{
           transform: `translate3d(0, ${scrollY * 0.02}px, 0)`
         }}
       >
-        <h1 className="font-poster text-[12.8vw] sm:text-[11.8vw] md:text-[10.8vw] lg:text-[10.2vw] xl:text-[9.8vw] 2xl:text-[152px] tracking-tight leading-none text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] uppercase whitespace-nowrap select-none">
+        <h1 className="font-hero text-[clamp(2.2rem,8.2vw,124px)] tracking-tight leading-none text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] uppercase whitespace-nowrap select-none text-center">
           RITHIN RAKESH
         </h1>
       </div>

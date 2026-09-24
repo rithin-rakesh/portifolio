@@ -25,9 +25,10 @@ export default {
         }
       },
       fontFamily: {
-        poster: ['Anton', 'Bebas Neue', 'Syne', 'sans-serif'],
-        display: ['Syne', 'Cabinet Grotesk', 'sans-serif'],
-        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+        hero: ['Inter', 'Geist', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        poster: ['Inter', 'Geist', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        display: ['Inter', 'Geist', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        sans: ['Inter', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       letterSpacing: {

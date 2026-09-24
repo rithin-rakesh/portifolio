@@ -70,7 +70,7 @@ export default function Navbar({ onOpenResume }) {
             Projects
           </a>
           <a href="#skills" className="hover:text-white transition-colors duration-200">
-            Arsenal
+            Skills
           </a>
           <a href="#contact" className="hover:text-white transition-colors duration-200">
             Contact
@@ -131,7 +131,7 @@ export default function Navbar({ onOpenResume }) {
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              01. About Me
+              01. About
             </a>
             <a 
               href="#experience" 
@@ -145,14 +145,14 @@ export default function Navbar({ onOpenResume }) {
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              03. Featured Projects
+              03. Projects
             </a>
             <a 
               href="#skills" 
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              04. Technical Arsenal
+              04. Skills
             </a>
             <a 
               href="#contact" 

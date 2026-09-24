@@ -8,23 +8,47 @@
   }
 
   body {
-    background-color: #08070e;
+    background-color: #08070d;
     color: #e6e6ee;
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .heading-poster {
+    font-family: 'Inter', 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.03em;
+    font-weight: 700;
   }
 }
 
-/* Saturated Ambient Canvas (Synchronized across the entire portfolio) */
+/* Saturated Ambient Canvas with Image 3 Multi-Color Radiance */
 .ambient-canvas {
-  background-color: #08070e;
+  background-color: #08070d;
   background-image: 
-    radial-gradient(circle 900px at 15% 15%, rgba(255, 95, 20, 0.28) 0%, transparent 65%),
-    radial-gradient(circle 800px at 85% 25%, rgba(6, 182, 212, 0.22) 0%, transparent 65%),
-    radial-gradient(circle 1000px at 50% 60%, rgba(234, 88, 12, 0.18) 0%, transparent 70%),
-    radial-gradient(circle 750px at 80% 85%, rgba(13, 148, 136, 0.20) 0%, transparent 65%),
-    radial-gradient(circle 800px at 20% 90%, rgba(147, 51, 234, 0.16) 0%, transparent 70%);
+    radial-gradient(circle 900px at 15% 15%, rgba(255, 95, 20, 0.22) 0%, transparent 65%),
+    radial-gradient(circle 800px at 85% 25%, rgba(6, 182, 212, 0.16) 0%, transparent 65%),
+    radial-gradient(circle 1000px at 50% 55%, rgba(16, 185, 129, 0.12) 0%, transparent 70%),
+    radial-gradient(circle 750px at 80% 85%, rgba(234, 88, 12, 0.15) 0%, transparent 65%),
+    radial-gradient(circle 800px at 20% 90%, rgba(13, 148, 136, 0.14) 0%, transparent 70%);
   background-attachment: fixed;
+  position: relative;
+}
+
+/* High-Density Photographic Film Grain Texture (Exact Image 3 Recreation) */
+.ambient-canvas::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.32;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.75 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
 }
 
 /* Custom Scrollbar */
@@ -56,7 +80,7 @@
 .animate-marquee {
   display: flex;
   width: max-content;
-  animation: marquee 32s linear infinite;
+  animation: marquee 28s linear infinite;
   will-change: transform;
 }
 
@@ -64,9 +88,56 @@
   animation-play-state: paused;
 }
 
+/* Natural Anti-Slop Font Animations */
+@keyframes kineticBreathe {
+  0%, 100% {
+    letter-spacing: -0.025em;
+  }
+  50% {
+    letter-spacing: 0.015em;
+  }
+}
+
+@keyframes softSubtleGlow {
+  0%, 100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(255, 85, 0, 0.3));
+  }
+}
+
+.animate-letter-track {
+  animation: kineticBreathe 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-neon-glow {
+  animation: softSubtleGlow 4s ease-in-out infinite;
+}
+
+.kinetic-heading {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), letter-spacing 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+  will-change: transform, letter-spacing;
+}
+
+.kinetic-heading:hover {
+  letter-spacing: 0.015em;
+  transform: translateY(-2px);
+}
+
+.font-kinetic-pill {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, letter-spacing 0.3s ease;
+}
+
+.font-kinetic-pill:hover {
+  letter-spacing: 0.2em;
+  transform: translateY(-1px);
+}
+
 /* Enhanced Glassmorphism Card with Saturated Hover Glow */
 .glass-panel {
-  background: rgba(15, 13, 22, 0.75);
+  background: rgba(15, 14, 22, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -77,8 +148,57 @@
   box-shadow: 0 14px 40px -10px rgba(255, 95, 20, 0.25);
 }
 
-/* Saturated Vignette Masks */
-.mask-feather-panoramic {
-  mask-image: radial-gradient(ellipse 94% 90% at 50% 50%, black 70%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse 94% 90% at 50% 50%, black 70%, transparent 100%);
+/* Dashed Technical Tech Stack Chip (Image 2 Match) */
+.dashed-chip {
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #d4d4dc;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.dashed-chip:hover {
+  border-color: #ff5500;
+  color: #ff5500;
+  background: rgba(255, 85, 0, 0.08);
+}
+
+/* Frosted Chat Bubble Pills (Image 3 Match) */
+.frosted-pill-user {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 9999px;
+  color: #ffffff;
+  padding: 8px 18px;
+  font-size: 13px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+.frosted-pill-ai {
+  background: #ffffff;
+  color: #0c0b12;
+  border-radius: 20px;
+  padding: 12px 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
+}
+
+.frosted-pill-status {
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 9999px;
+  color: #e4e4ed;
+  padding: 6px 16px;
+  font-size: 12px;
 }
