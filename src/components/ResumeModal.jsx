@@ -101,7 +101,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 </span>
               </div>
               <span className="font-mono text-xs text-neutral-400 mt-1 sm:mt-0">
-                2021 - 2025
+                2021 — 2025
               </span>
             </div>
           </div>
@@ -146,7 +146,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                     <span className="text-[#ff5500]">Leniko Solutions</span>
                   </div>
                   <span className="font-mono text-xs text-neutral-400 mt-1 sm:mt-0">
-                    July 2026 - Present
+                    July 2026 — Present
                   </span>
                 </div>
                 <ul className="mt-2.5 space-y-1.5 text-xs text-neutral-300">
@@ -169,7 +169,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                     <span className="text-[#ff5500]">Luminar Technolab · Calicut, Kerala</span>
                   </div>
                   <span className="font-mono text-xs text-neutral-400 mt-1 sm:mt-0">
-                    September 2025 - April 2026
+                    September 2025 — April 2026
                   </span>
                 </div>
                 <ul className="mt-2.5 space-y-1.5 text-xs text-neutral-300">
@@ -200,7 +200,7 @@ export default function ResumeModal({ isOpen, onClose }) {
               <div>
                 <div className="flex items-center justify-between">
                   <h3 className="font-bold text-white">Agentic AI Job Application Agent</h3>
-                  <span className="font-mono text-neutral-400">2026 - Present</span>
+                  <span className="font-mono text-neutral-400">2026 — Present</span>
                 </div>
                 <ul className="mt-1.5 space-y-1 text-neutral-300">
                   <li>• Developed an end-to-end AI-powered job application platform using Python, FastAPI, LangGraph, NVIDIA NIM, Supabase/PostgreSQL, JobSpy, and Apify, integrating job discovery, candidate profiling, matching, and application workflows.</li>
@@ -242,8 +242,8 @@ export default function ResumeModal({ isOpen, onClose }) {
             </h2>
             <div className="space-y-1.5 text-xs text-neutral-300">
               <p>• Coursera Supervised Machine Learning: Regression and Classification</p>
-              <p>• AWS Academy Graduate - Machine Learning Foundations</p>
-              <p>• AWS Academy Graduate - Cloud Foundations</p>
+              <p>• AWS Academy Graduate — Machine Learning Foundations</p>
+              <p>• AWS Academy Graduate — Cloud Foundations</p>
             </div>
           </div>
 

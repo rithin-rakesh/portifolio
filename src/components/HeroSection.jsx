@@ -48,6 +48,13 @@ export default function HeroSection({ onOpenResume }) {
     setMousePos({ x: 0, y: 0 });
   };
 
+  // Dynamic scroll ratio for sticky curtain reveal
+  const windowHeight = typeof window !== 'undefined' ? (window.innerHeight || 800) : 800;
+  const scrollRatio = Math.min(1, Math.max(0, scrollY / windowHeight));
+  const heroScale = Math.max(0.93, 1 - scrollRatio * 0.07);
+  const heroParallaxY = scrollY * 0.14;
+  const dimOpacity = Math.min(0.68, scrollRatio * 0.72);
+
   return (
     <section 
       id="home" 
@@ -55,9 +62,23 @@ export default function HeroSection({ onOpenResume }) {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       data-card="true"
-      className="relative w-full min-h-[96dvh] lg:min-h-screen flex flex-col justify-between overflow-hidden bg-[#ea4e17] select-none"
-      style={{ perspective: '1200px' }}
+      className="sticky top-0 z-10 w-full h-[100dvh] min-h-[680px] overflow-hidden bg-[#070709] select-none"
     >
+      {/* Sinking Cinematic Dim Overlay (Deepens as About Page Rises from Underneath) */}
+      <div 
+        className="absolute inset-0 bg-black pointer-events-none z-40 transition-opacity duration-75"
+        style={{ opacity: dimOpacity }}
+      />
+
+      {/* Scaled & Parallaxed Inner Canvas */}
+      <div 
+        className="relative w-full h-full flex flex-col justify-between"
+        style={{ 
+          transform: `scale(${heroScale}) translate3d(0, ${heroParallaxY}px, 0)`,
+          transformOrigin: 'center 40%',
+          willChange: 'transform'
+        }}
+      >
       {/* ======================================================== */}
       {/* LAYER 1: FULL-BLEED IMAGE FILLING SIDES & ENTIRE CANVAS */}
       {/* ======================================================== */}
@@ -78,7 +99,7 @@ export default function HeroSection({ onOpenResume }) {
         {/* Primary sharp portrait positioned downwards so hair has complete visibility and headroom */}
         <img 
           src="/profile.jpg" 
-          alt="Rithin Rakesh · AI/ML Engineer"
+          alt="Rithin Rakesh — AI/ML Engineer"
           className="relative w-full h-full object-cover object-[55%_4%] sm:object-[55%_5%] md:object-[54%_6%] lg:object-[53%_7%] filter contrast-[1.06] saturate-[1.22] brightness-[1.06]"
         />
 
@@ -204,7 +225,7 @@ export default function HeroSection({ onOpenResume }) {
           transform: `translate3d(0, ${scrollY * 0.02}px, 0)`
         }}
       >
-        <h1 className="font-hero text-[clamp(1.9rem,8vw,124px)] tracking-tight leading-none text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] uppercase whitespace-nowrap select-none text-center">
+        <h1 className="font-hero text-[clamp(2.2rem,8.2vw,124px)] tracking-tight leading-none text-white drop-shadow-[0_12px_36px_rgba(0,0,0,0.85)] uppercase whitespace-nowrap select-none text-center">
           RITHIN RAKESH
         </h1>
       </div>
@@ -243,6 +264,8 @@ export default function HeroSection({ onOpenResume }) {
 
       </div>
 
-    </section>
-  );
+    </div>
+
+  </section>
+);
 }

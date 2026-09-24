@@ -4,8 +4,13 @@ import ScrollReveal from './ScrollReveal';
 
 export default function AboutSection() {
   return (
-    <section id="about" className="relative py-28 sm:py-36 px-6 sm:px-10 md:px-14 lg:px-20 max-w-[1520px] mx-auto border-t border-white/[0.08] overflow-hidden">
+    <section id="about" className="relative pt-10 sm:pt-14 pb-28 sm:pb-36 px-6 sm:px-10 md:px-14 lg:px-20 max-w-[1520px] mx-auto overflow-hidden">
       
+      {/* Visual Sheet Pull Affordance Handle */}
+      <div className="flex justify-center -mt-2 sm:-mt-4 mb-8 sm:mb-12 pointer-events-none">
+        <div className="w-12 sm:w-16 h-1 sm:h-1.5 rounded-full bg-white/25 shadow-[0_0_12px_rgba(255,255,255,0.15)]" />
+      </div>
+
       {/* Top Editorial Index Bar */}
       <ScrollReveal direction="down">
         <div className="relative z-10 flex items-center justify-between text-xs font-mono uppercase tracking-[0.25em] text-neutral-400 mb-12 sm:mb-16 border-b border-white/[0.08] pb-4">
@@ -27,7 +32,7 @@ export default function AboutSection() {
         <div className="lg:col-span-7">
           <ScrollReveal direction="up" delay={100}>
             <span className="text-xs font-mono uppercase tracking-[0.22em] text-[#bef264] font-medium block mb-3">
-              ENGINEERING BACKGROUND · 2021 - 2026
+              ENGINEERING BACKGROUND · 2021 – 2026
             </span>
             <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-[1.08] text-white tracking-[-0.035em] mb-4 font-bold">
               Building Reliable AI Agents & Neural Systems
@@ -55,7 +60,7 @@ export default function AboutSection() {
           <ScrollReveal direction="up" delay={240}>
             <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/[0.08]">
               <div>
-                <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight block">2021-25</span>
+                <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight block">2021–25</span>
                 <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block mt-1">SRM B.Tech</span>
               </div>
               <div>
@@ -89,7 +94,7 @@ export default function AboutSection() {
               </div>
 
               <blockquote className="font-sans text-base sm:text-lg text-white font-medium leading-relaxed mb-6 italic">
-                “True autonomy in AI isn't generating tokens: it is executing verifiable actions with deterministic state.”
+                “True autonomy in AI isn't generating tokens—it is executing verifiable actions with deterministic state.”
               </blockquote>
 
               <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs text-neutral-400">
@@ -111,7 +116,7 @@ export default function AboutSection() {
                     <span className="text-[#bef264] font-bold text-xs">*</span>
                     <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block">Current Role</span>
                   </div>
-                  <h4 className="font-display text-sm uppercase text-white font-bold tracking-tight">AI Intern · Leniko Solutions</h4>
+                  <h4 className="font-display text-sm uppercase text-white font-bold tracking-tight">AI Intern — Leniko Solutions</h4>
                   <p className="text-xs font-sans text-neutral-400 mt-0.5">LangGraph · NVIDIA NIM · FastAPI</p>
                 </div>
               </div>

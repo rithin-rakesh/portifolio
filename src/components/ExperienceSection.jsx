@@ -11,13 +11,13 @@ export default function ExperienceSection() {
       type: 'INDUSTRY EXPERIENCE',
       role: 'AI Intern',
       organization: 'Leniko Solutions',
-      period: 'July 2026 - Present',
+      period: 'July 2026 — Present',
       location: 'India',
       status: 'Current Engagement',
       logo: '/logos/leniko.png',
       logoAlt: 'Leniko Solutions Logo',
-      accentColor: '#bef264',
-      glowClass: 'group-hover:border-[#bef264]/30',
+      accentColor: '#ef4444',
+      glowClass: 'group-hover:border-red-500/50 group-hover:shadow-[0_20px_50px_-10px_rgba(239,68,68,0.25)]',
       bullets: [
         'Developing production AI applications using LangGraph multi-agent workflows and Large Language Models.',
         'Building low-latency inference pipelines with NVIDIA NIM and FastAPI, backed by Supabase state checkpoints.'
@@ -29,13 +29,13 @@ export default function ExperienceSection() {
       type: 'DATA SCIENCE INTERNSHIP',
       role: 'Data Science Intern',
       organization: 'Luminar Technolab',
-      period: 'September 2025 - April 2026',
+      period: 'September 2025 — April 2026',
       location: 'Calicut, Kerala',
       status: 'Completed',
       logo: '/logos/luminar.png',
       logoAlt: 'Luminar Technolab Logo',
-      accentColor: '#bef264',
-      glowClass: 'group-hover:border-[#bef264]/30',
+      accentColor: '#a855f7',
+      glowClass: 'group-hover:border-purple-500/50 group-hover:shadow-[0_20px_50px_-10px_rgba(168,85,247,0.25)]',
       bullets: [
         'Executed exploratory data analysis, statistical modeling, and feature engineering across structured datasets.',
         'Trained deep learning models and applied transfer learning to clinical MRI brain tumor classification.'
@@ -47,16 +47,16 @@ export default function ExperienceSection() {
       type: 'FORMAL ENGINEERING DEGREE',
       role: 'B.Tech in Computer Science',
       organization: 'SRM Institute of Science and Technology',
-      period: '2021 - 2025',
+      period: '2021 — 2025',
       location: 'Chennai, Tamil Nadu, India',
       status: 'Degree Conferred',
       logo: '/logos/srm.png',
       logoAlt: 'SRM Institute of Science and Technology Logo',
-      accentColor: '#bef264',
-      glowClass: 'group-hover:border-[#bef264]/30',
+      accentColor: '#3b82f6',
+      glowClass: 'group-hover:border-blue-500/50 group-hover:shadow-[0_20px_50px_-10px_rgba(59,130,246,0.25)]',
       lightenDarkText: true,
       bullets: [
-        'Graduated with a Bachelor of Technology in Computer Science and Engineering (2021 - 2025).',
+        'Graduated with a Bachelor of Technology in Computer Science and Engineering (2021 – 2025).',
         'Rigorous foundation in Data Structures, Algorithms, Relational Databases, and Artificial Intelligence.'
       ],
       skills: ['Algorithms', 'Data Structures', 'SQL / MySQL', 'Distributed Systems', 'AI Foundations']
@@ -73,14 +73,14 @@ export default function ExperienceSection() {
       badge: 'ML SPECIALIST'
     },
     {
-      title: 'AWS Academy Graduate - Machine Learning Foundations',
+      title: 'AWS Academy Graduate — Machine Learning Foundations',
       issuer: 'Amazon Web Services (AWS)',
       year: '2025',
       type: 'Cloud & AI',
       badge: 'AWS ML'
     },
     {
-      title: 'AWS Academy Graduate - Cloud Foundations',
+      title: 'AWS Academy Graduate — Cloud Foundations',
       issuer: 'Amazon Web Services (AWS)',
       year: '2024',
       type: 'Cloud Architecture',
@@ -109,7 +109,7 @@ export default function ExperienceSection() {
       <div className="relative z-10 mb-16 sm:mb-20">
         <ScrollReveal direction="up" delay={100}>
           <span className="text-xs font-mono uppercase tracking-[0.22em] text-[#bef264] font-medium block mb-3">
-            CAREER TRAJECTORY · 2021 - PRESENT
+            CAREER TRAJECTORY · 2021 – PRESENT
           </span>
           <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-bold leading-[1.08] text-white tracking-[-0.035em] max-w-4xl">
             Work Experience & Education
@@ -132,8 +132,13 @@ export default function ExperienceSection() {
           <ScrollReveal key={item.id} direction="up" delay={idx * 120}>
             <div 
               data-card="true"
-              className={`p-7 sm:p-9 md:p-10 rounded-3xl bg-[#0c0c11] border border-white/10 ${item.glowClass} transition-all duration-300 relative overflow-hidden group shadow-2xl`}
+              className={`p-7 sm:p-9 md:p-10 rounded-3xl bg-[#0d0c14] border border-white/10 ${item.glowClass} transition-all duration-400 relative overflow-hidden group shadow-2xl`}
             >
+              {/* Subtle ambient brand color corner glow */}
+              <div 
+                className="absolute -top-20 -right-20 w-64 h-64 rounded-full blur-3xl opacity-15 group-hover:opacity-30 transition-opacity pointer-events-none"
+                style={{ backgroundColor: item.accentColor }}
+              />
 
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
                 

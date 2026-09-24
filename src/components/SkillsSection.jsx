@@ -124,13 +124,13 @@ export default function SkillsSection({ onOpenResume }) {
       badge: 'ML SPECIALIST'
     },
     {
-      title: 'AWS Academy Graduate - Machine Learning Foundations',
+      title: 'AWS Academy Graduate — Machine Learning Foundations',
       issuer: 'Amazon Web Services (AWS)',
       year: '2025',
       badge: 'AWS ML'
     },
     {
-      title: 'AWS Academy Graduate - Cloud Foundations',
+      title: 'AWS Academy Graduate — Cloud Foundations',
       issuer: 'Amazon Web Services (AWS)',
       year: '2024',
       badge: 'AWS CLOUD'
@@ -214,8 +214,14 @@ export default function SkillsSection({ onOpenResume }) {
           return (
             <ScrollReveal key={group.id} direction="up" delay={gIdx * 100} duration={500}>
               <div 
-                className="group relative h-full p-6 sm:p-7 rounded-2xl bg-[#0c0c11] border border-white/[0.07] hover:border-white/20 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden shadow-xl"
+                className="group relative h-full p-6 sm:p-7 rounded-2xl bg-[#0c0c11] border border-white/[0.07] hover:border-white/20 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden"
               >
+                {/* Subtle Ambient Corner Light Bloom */}
+                <div 
+                  className="absolute -top-24 -right-24 w-60 h-60 rounded-full blur-3xl pointer-events-none opacity-10 group-hover:opacity-25 transition-opacity duration-500"
+                  style={{ backgroundColor: group.accentColor }}
+                />
+
                 {/* Card Top: Group Telemetry & Header */}
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
