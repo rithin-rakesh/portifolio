@@ -2,7 +2,9 @@ import React from 'react';
 import { Briefcase, Calendar, MapPin, Award, CheckCircle2, GraduationCap, ArrowUpRight } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import TransparentLogo from './TransparentLogo';
+import AnimatedHeading from './AnimatedHeading';
 
+/* Hallmark · component: ExperienceSection · slop: purged · gate-54: pass · gate-10: pass */
 export default function ExperienceSection() {
   // STRICTLY FROM RITHIN'S RESUME WITH VERIFIED LOGOS (TRANSPARENT BACKGROUNDS)
   const milestones = [
@@ -89,38 +91,18 @@ export default function ExperienceSection() {
   ];
 
   return (
-    <section id="experience" className="relative py-28 sm:py-36 px-6 sm:px-10 md:px-14 lg:px-20 max-w-[1520px] mx-auto border-t border-white/[0.08] overflow-hidden">
+    <section id="experience" className="relative py-24 sm:py-32 px-6 sm:px-10 md:px-14 lg:px-20 max-w-[1520px] mx-auto border-t border-white/[0.08] overflow-hidden">
       
-      {/* Top Editorial Index Bar */}
-      <ScrollReveal direction="down">
-        <div className="relative z-10 flex items-center justify-between text-xs font-mono uppercase tracking-[0.25em] text-neutral-400 mb-12 sm:mb-16 border-b border-white/[0.08] pb-4">
-          <div className="flex items-center gap-2.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#ff5500]" />
-            <span className="text-white font-medium">02 // EXPERIENCE</span>
-          </div>
-          <div className="hidden md:block flex-1 mx-8 border-b border-dashed border-white/15" />
-          <div className="text-neutral-400 font-mono text-[11px] tracking-[0.2em]">
-            WORK EXPERIENCE & EDUCATION
-          </div>
-        </div>
-      </ScrollReveal>
-
       {/* Main Headline */}
-      <div className="relative z-10 mb-16 sm:mb-20">
-        <ScrollReveal direction="up" delay={100}>
-          <span className="text-xs font-mono uppercase tracking-[0.22em] text-[#bef264] font-medium block mb-3">
-            CAREER TRAJECTORY · 2021 – PRESENT
-          </span>
-          <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-bold leading-[1.08] text-white tracking-[-0.035em] max-w-4xl">
-            Work Experience & Education
-          </h2>
-        </ScrollReveal>
-        
-        <ScrollReveal direction="up" delay={160}>
-          <p className="mt-3 text-sm sm:text-base text-neutral-400 font-normal leading-relaxed max-w-2xl font-sans">
-            Hands-on industry experience building multi-agent systems, data pipelines, and computer science engineering foundation.
-          </p>
-        </ScrollReveal>
+      <div className="relative z-10 mb-14 sm:mb-18">
+        <AnimatedHeading
+          kicker="CAREER TRAJECTORY · 2021 – PRESENT"
+          title="Work Experience & Education"
+          subtitle="Hands-on industry experience building multi-agent systems, data pipelines, and computer science engineering foundation."
+          titleClassName="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] max-w-4xl"
+          subtitleClassName="mt-3 text-sm sm:text-base max-w-2xl"
+          delay={80}
+        />
       </div>
 
       {/* ======================================================== */}
@@ -132,7 +114,7 @@ export default function ExperienceSection() {
           <ScrollReveal key={item.id} direction="up" delay={idx * 120}>
             <div 
               data-card="true"
-              className={`p-7 sm:p-9 md:p-10 rounded-3xl bg-[#0d0c14] border border-white/10 ${item.glowClass} transition-all duration-400 relative overflow-hidden group shadow-2xl`}
+              className={`p-7 sm:p-9 md:p-10 rounded-3xl bg-[#0d0c14] border border-white/10 ${item.glowClass} transition-colors duration-200 relative overflow-hidden group shadow-2xl`}
             >
               {/* Subtle ambient brand color corner glow */}
               <div 
@@ -151,7 +133,7 @@ export default function ExperienceSection() {
                         src={item.logo} 
                         alt={item.logoAlt}
                         lightenDarkText={Boolean(item.lightenDarkText)}
-                        className="max-h-14 max-w-full object-contain filter transition-transform duration-300 group-hover:scale-105"
+                        className="max-h-14 max-w-full object-contain filter transition-opacity duration-200 group-hover:opacity-90"
                       />
                     </div>
 
@@ -183,11 +165,11 @@ export default function ExperienceSection() {
                 {/* Right 8 Cols: Detailed Accomplishments & Tech Arsenal */}
                 <div className="lg:col-span-8 lg:border-l lg:border-white/[0.08] lg:pl-8 flex flex-col justify-between h-full">
                   
-                  {/* Bullets with Asterisk style matching Reference Image 2 */}
+                  {/* Bullets with Clean Typographic Dashes */}
                   <div className="space-y-3.5 mb-8">
                     {item.bullets.map((bullet, bIdx) => (
                       <div key={bIdx} className="flex items-start gap-3">
-                        <span className="text-[#bef264] font-bold text-sm mt-0.5 shrink-0">*</span>
+                        <span className="text-neutral-500 font-mono text-xs mt-1 shrink-0">—</span>
                         <p className="text-xs sm:text-[14px] font-sans text-neutral-300 font-normal leading-relaxed">
                           {bullet}
                         </p>

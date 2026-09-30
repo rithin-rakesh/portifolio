@@ -35,7 +35,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
 
           <button
             onClick={onClose}
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#ff5500] text-white font-mono text-xs uppercase tracking-wider transition-all duration-200"
+            className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#ff5500] text-white font-mono text-xs uppercase tracking-wider transition-colors duration-200"
           >
             <span>Close</span>
             <X className="w-4 h-4" />
@@ -68,7 +68,6 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
           <div className="p-6 sm:p-8 rounded-2xl bg-black/50 border border-white/15">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6 font-mono text-xs">
               <div className="flex items-center gap-2">
-                <span className="text-[#bef264] font-bold text-sm">*</span>
                 <span className="text-white uppercase font-bold tracking-wider">
                   PIPELINE STAGES
                 </span>
@@ -95,7 +94,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Detailed Case Content matching Reference Image 2 (* Background / * Problem & Operational Friction) */}
+          {/* Detailed Case Content */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             
             {/* Left 8 Cols: Structured Topics */}
@@ -104,18 +103,17 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
               {/* Background */}
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-[#bef264] font-bold text-sm">*</span>
                   <h3 className="font-display font-bold text-base sm:text-lg text-white tracking-tight">
                     Background
                   </h3>
                 </div>
-                <p className="text-sm font-sans text-neutral-300 font-normal leading-relaxed pl-3.5">
+                <p className="text-sm font-sans text-neutral-300 font-normal leading-relaxed">
                   {project.description}
                 </p>
               </div>
 
               {/* Separator Node */}
-              <div className="flex items-center gap-3 py-1 pl-3.5">
+              <div className="flex items-center gap-3 py-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/30" />
                 <div className="h-[1px] flex-1 bg-white/[0.08]" />
               </div>
@@ -123,18 +121,17 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
               {/* Problem & Operational Friction */}
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <span className="text-[#bef264] font-bold text-sm">*</span>
                   <h3 className="font-display font-bold text-base sm:text-lg text-white tracking-tight">
                     The Problem & Operational Friction
                   </h3>
                 </div>
-                <p className="text-sm font-sans text-neutral-300 font-normal leading-relaxed pl-3.5">
+                <p className="text-sm font-sans text-neutral-300 font-normal leading-relaxed">
                   {project.details}
                 </p>
               </div>
 
               {/* Separator Node */}
-              <div className="flex items-center gap-3 py-1 pl-3.5">
+              <div className="flex items-center gap-3 py-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-white/30" />
                 <div className="h-[1px] flex-1 bg-white/[0.08]" />
               </div>
@@ -142,15 +139,14 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
               {/* Key Implementation Bullets */}
               <div className="space-y-3">
                 <div className="flex items-center gap-2">
-                  <span className="text-[#bef264] font-bold text-sm">*</span>
                   <h3 className="font-display font-bold text-base sm:text-lg text-white tracking-tight">
                     Key Capabilities & Implementation
                   </h3>
                 </div>
-                <div className="space-y-3 pl-3.5">
+                <div className="space-y-3">
                   {project.bullets.map((bullet, idx) => (
                     <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.025] border border-white/[0.06]">
-                      <span className="text-[#bef264] font-bold text-sm mt-0.5">›</span>
+                      <span className="text-neutral-500 font-mono text-sm mt-0.5 select-none">—</span>
                       <p className="text-xs sm:text-[13.5px] font-sans text-neutral-200 font-normal leading-relaxed">
                         {bullet}
                       </p>
@@ -204,7 +200,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
                   href="https://github.com/rithin-rakesh" 
                   target="_blank" 
                   rel="noreferrer"
-                  className="w-full py-3.5 rounded-full bg-[#ff5500] hover:bg-[#ff6c1a] text-white font-display font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-transform hover:scale-105 shadow-lg shadow-[#ff5500]/25"
+                  className="w-full py-3.5 rounded-full bg-[#ff5500] hover:bg-[#ff6c1a] text-white font-display font-bold text-sm tracking-wider uppercase flex items-center justify-center gap-2 transition-colors duration-200 shadow-lg shadow-[#ff5500]/25"
                 >
                   <Github className="w-4 h-4" />
                   <span>VIEW CODE ON GITHUB</span>

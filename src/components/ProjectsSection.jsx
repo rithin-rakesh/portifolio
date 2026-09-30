@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { ArrowRight, ArrowLeft, Bot, ExternalLink, Sparkles, Terminal, Activity, Database, ShieldCheck, FileText, Layers, CheckCircle2, GitBranch, Cpu, MoveRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Bot, ExternalLink, Terminal, Activity, Database, ShieldCheck, FileText, Layers, CheckCircle2, GitBranch, Cpu, MoveRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import ProjectDetailModal from './ProjectDetailModal';
 
+/* Hallmark · component: ProjectsSection · slop: purged · gate-10: pass · gate-11: pass · gate-54: pass */
 export default function ProjectsSection() {
   // Master project index (0, 1, 2)
   const [activeIdx, setActiveIdx] = useState(0);
@@ -273,12 +274,12 @@ export default function ProjectsSection() {
         
         {/* Project Tracker */}
         <div className="flex items-center gap-3">
-          <span className="w-2.5 h-2.5 rounded-full bg-[#ff5500] shadow-[0_0_8px_#ff5500] animate-pulse" />
-          <span className="font-mono text-xs uppercase tracking-[0.25em] text-white font-semibold">
-            PROJECT // 0{activeIdx + 1} OF 0{total}
+          <span className="w-2 h-2 rounded-full bg-[#ff5500] shadow-[0_0_8px_#ff5500]" />
+          <span className="font-mono text-xs uppercase tracking-[0.22em] text-white font-medium">
+            Featured Project {activeIdx + 1} of {total}
           </span>
           <span className="hidden sm:inline text-neutral-500 font-mono text-xs">·</span>
-          <span className="hidden sm:inline font-mono text-xs text-[#ff5500] uppercase tracking-widest font-bold">
+          <span className="hidden sm:inline font-mono text-xs text-[#bef264] uppercase tracking-widest font-semibold">
             {projects[activeIdx].period}
           </span>
         </div>
@@ -287,7 +288,7 @@ export default function ProjectsSection() {
         <div className="flex items-center gap-3 pointer-events-auto">
           <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md text-xs font-sans text-neutral-300">
             <span className="hidden sm:inline">Slide left or right</span>
-            <MoveRight className="w-3.5 h-3.5 text-[#ff5500] animate-pulse" />
+            <MoveRight className="w-3.5 h-3.5 text-[#ff5500]" />
           </div>
         </div>
 
@@ -300,18 +301,18 @@ export default function ProjectsSection() {
       <button
         onClick={stepToPrev}
         aria-label="Previous Project Slide"
-        className="absolute left-3 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0c0c14]/85 hover:bg-[#ff5500] border border-white/15 hover:border-[#ff5500] text-white flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_0_20px_rgba(255,85,0,0.4)] hover:scale-110 group pointer-events-auto"
+        className="absolute left-3 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0c0c14]/85 hover:bg-[#ff5500] border border-white/15 hover:border-[#ff5500] text-white flex items-center justify-center backdrop-blur-md transition-colors duration-200 shadow-[0_8px_24px_rgba(0,0,0,0.6)] group pointer-events-auto"
       >
-        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:-translate-x-0.5" />
+        <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:-translate-x-0.5" />
       </button>
 
       {/* Next Slide Button (Right) */}
       <button
         onClick={stepToNext}
         aria-label="Next Project Slide"
-        className="absolute right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0c0c14]/85 hover:bg-[#ff5500] border border-white/15 hover:border-[#ff5500] text-white flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.6)] hover:shadow-[0_0_20px_rgba(255,85,0,0.4)] hover:scale-110 group pointer-events-auto"
+        className="absolute right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-40 w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#0c0c14]/85 hover:bg-[#ff5500] border border-white/15 hover:border-[#ff5500] text-white flex items-center justify-center backdrop-blur-md transition-colors duration-200 shadow-[0_8px_24px_rgba(0,0,0,0.6)] group pointer-events-auto"
       >
-        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:translate-x-0.5" />
+        <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:translate-x-0.5" />
       </button>
 
       {/* ======================================================== */}
@@ -330,7 +331,7 @@ export default function ProjectsSection() {
           return (
             <div 
               key={project.id}
-              className={`w-full h-full shrink-0 flex flex-col justify-between pt-24 sm:pt-28 pb-20 sm:pb-22 px-6 sm:px-14 md:px-18 lg:px-24 xl:px-28 relative overflow-hidden transition-all duration-700 ease-out ${
+              className={`w-full h-full shrink-0 flex flex-col justify-between pt-24 sm:pt-28 pb-20 sm:pb-22 px-6 sm:px-14 md:px-18 lg:px-24 xl:px-28 relative overflow-hidden transition-[opacity,transform] duration-700 ease-out ${
                 isActive ? 'opacity-100 scale-100' : 'opacity-35 scale-[0.98]'
               }`}
             >
@@ -357,7 +358,9 @@ export default function ProjectsSection() {
                   {/* Clean Headline matching FunnelFox 360 in Inter */}
                   <h2 
                     onClick={() => setSelectedProject(project)}
-                    className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white tracking-[-0.035em] leading-[1.08] mb-3 cursor-pointer hover:text-[#bef264] transition-colors"
+                    className={`font-display text-3xl sm:text-4xl md:text-5xl lg:text-[48px] font-bold text-white tracking-[-0.035em] leading-[1.08] mb-3 cursor-pointer hover:text-[#bef264] transition-[transform,opacity,color] duration-500 ease-out ${
+                      isActive ? 'translate-y-0 opacity-100' : 'translate-y-3 opacity-40'
+                    }`}
                   >
                     {project.title}
                   </h2>
@@ -367,33 +370,31 @@ export default function ProjectsSection() {
                     {project.subtitle}
                   </p>
 
-                  {/* Structured Case Topics matching Reference Image 2 (* Background / * Operational Flow) */}
+                  {/* Structured Case Topics */}
                   <div className="space-y-4 mb-6 p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/10 backdrop-blur-sm">
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
-                        <span className="text-[#bef264] font-bold text-sm">*</span>
                         <span className="font-display font-bold text-xs sm:text-sm text-white tracking-tight uppercase">
                           Background & Objective
                         </span>
                       </div>
-                      <p className="text-xs sm:text-[13.5px] font-sans text-neutral-300 font-normal leading-relaxed pl-3.5">
+                      <p className="text-xs sm:text-[13.5px] font-sans text-neutral-300 font-normal leading-relaxed">
                         {project.bullets[0]}
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-3 py-0.5 pl-3.5">
+                    <div className="flex items-center gap-3 py-0.5">
                       <span className="w-1.5 h-1.5 rounded-full bg-white/20" />
                       <div className="h-[1px] flex-1 bg-white/[0.06]" />
                     </div>
 
                     <div>
                       <div className="flex items-center gap-2 mb-1.5">
-                        <span className="text-[#bef264] font-bold text-sm">*</span>
                         <span className="font-display font-bold text-xs sm:text-sm text-white tracking-tight uppercase">
                           Operational Architecture
                         </span>
                       </div>
-                      <p className="text-xs sm:text-[13.5px] font-sans text-neutral-300 font-normal leading-relaxed pl-3.5">
+                      <p className="text-xs sm:text-[13.5px] font-sans text-neutral-300 font-normal leading-relaxed">
                         {project.bullets[1]}
                       </p>
                     </div>
@@ -412,7 +413,7 @@ export default function ProjectsSection() {
                   <div className="flex flex-wrap items-center gap-5 pt-2 pointer-events-auto">
                     <button
                       onClick={() => setSelectedProject(project)}
-                      className="px-6 py-3 rounded-full bg-white hover:bg-neutral-200 text-black font-display font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2 transition-all hover:scale-105 shadow-lg shadow-white/10"
+                      className="px-6 py-3 rounded-full bg-white hover:bg-neutral-200 text-black font-display font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2 transition-colors duration-200 shadow-lg shadow-white/10"
                     >
                       <span>VIEW SPECIFICATION</span>
                       <ArrowRight className="w-4 h-4" />
@@ -431,7 +432,7 @@ export default function ProjectsSection() {
                   
                   <div 
                     data-card="true"
-                    className="p-6 sm:p-8 rounded-3xl bg-[#0b0a12] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.85)] relative overflow-hidden group hover:border-[#bef264]/40 transition-all duration-500"
+                    className="p-6 sm:p-8 rounded-3xl bg-[#0b0a12] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.85)] relative overflow-hidden group hover:border-[#bef264]/40 transition-colors duration-200"
                   >
                     {/* Top Console Bar */}
                     <div className="flex items-center justify-between pb-5 border-b border-white/[0.08] mb-6 font-mono text-xs">
@@ -449,7 +450,6 @@ export default function ProjectsSection() {
                     {/* Architecture Nodes Flow (Pure Code/Vector - No Raster Images) */}
                     <div className="space-y-3 mb-6">
                       <div className="flex items-center gap-1.5 mb-2">
-                        <span className="text-[#bef264] font-bold text-xs">*</span>
                         <span className="text-[11px] font-sans font-medium text-[#bef264] uppercase tracking-wider">
                           Pipeline Stages
                         </span>
@@ -524,9 +524,9 @@ export default function ProjectsSection() {
               <button
                 key={proj.id}
                 onClick={() => goToSlide(pIdx)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-all duration-300 flex items-center gap-2 ${
+                className={`px-3.5 py-1.5 rounded-full text-xs font-mono transition-colors duration-200 flex items-center gap-2 ${
                   isActive
-                    ? 'bg-[#ff5500] text-white font-semibold shadow-lg shadow-[#ff5500]/30 scale-105'
+                    ? 'bg-[#ff5500] text-white font-semibold shadow-lg shadow-[#ff5500]/30'
                     : 'bg-white/[0.04] text-neutral-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]'
                 }`}
               >

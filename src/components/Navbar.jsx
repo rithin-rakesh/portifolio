@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, FileText } from 'lucide-react';
 
+/* Hallmark · component: Navbar · slop: purged · gate-42: pass · gate-10: pass */
 export default function Navbar({ onOpenResume }) {
   const [time, setTime] = useState('');
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -39,7 +40,7 @@ export default function Navbar({ onOpenResume }) {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 transform ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-[transform,opacity] duration-300 transform ${
         visible 
           ? 'translate-y-0 opacity-100 bg-[#08070d]/85 backdrop-blur-md border-b border-white/[0.08] py-3.5 shadow-2xl' 
           : '-translate-y-full opacity-0 pointer-events-none'
@@ -90,7 +91,7 @@ export default function Navbar({ onOpenResume }) {
 
           <button
             onClick={onOpenResume}
-            className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-white bg-white/[0.08] hover:bg-[#ff5500] hover:text-white px-4 py-2 rounded-full border border-white/10 transition-all duration-200"
+            className="flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-white bg-white/[0.08] hover:bg-[#ff5500] hover:text-white px-4 py-2 rounded-full border border-white/10 transition-colors duration-200"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>Resume</span>

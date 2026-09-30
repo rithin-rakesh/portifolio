@@ -69,7 +69,7 @@ export default function ResumeModal({ isOpen, onClose }) {
                 <Github className="w-3.5 h-3.5 text-neutral-400" />
                 github.com/rithin-rakesh
               </a>
-              <a href="https://linkedin.com/in/rithinrakesh" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-white">
+              <a href="https://www.linkedin.com/in/rithinrakesh" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 hover:text-white">
                 <Linkedin className="w-3.5 h-3.5 text-neutral-400" />
                 linkedin.com/in/rithinrakesh
               </a>

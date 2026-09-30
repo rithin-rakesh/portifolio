@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Github, Linkedin, ArrowUpRight, Copy, Check, FileText } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
+import AnimatedHeading from './AnimatedHeading';
 
+/* Hallmark · component: Footer · slop: purged · gate-10: pass · gate-11: pass · gate-30: pass */
 export default function Footer({ onOpenResume }) {
   const [copied, setCopied] = useState(false);
 
@@ -34,22 +36,19 @@ export default function Footer({ onOpenResume }) {
             
             {/* Left Column */}
             <div className="lg:col-span-7">
-              <span className="text-xs font-mono uppercase tracking-[0.22em] text-[#bef264] font-medium block mb-3">
-                COMMUNICATION CHANNELS · OPEN TO ROLES · 2026
-              </span>
-
-              <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl lg:text-[50px] text-white tracking-[-0.035em] leading-[1.08]">
-                Let's Build Something Intelligent Together
-              </h2>
-
-              <p className="mt-4 text-sm sm:text-base font-sans text-neutral-400 font-normal leading-relaxed max-w-xl">
-                Open for AI/ML engineering roles, autonomous agentic systems architecture, and production collaborations.
-              </p>
+              <AnimatedHeading
+                kicker="COMMUNICATION CHANNELS · OPEN TO ROLES · 2026"
+                title="Let's Build Something Intelligent Together"
+                subtitle="Open for AI/ML engineering roles, autonomous agentic systems architecture, and production collaborations."
+                titleClassName="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-[1.08]"
+                subtitleClassName="mt-4 text-sm sm:text-base max-w-xl"
+                delay={60}
+              />
 
               <div className="mt-8 flex flex-wrap items-center gap-4 text-xs font-mono">
                 <a 
                   href="mailto:rithinrakesh2002@gmail.com"
-                  className="px-6 py-3.5 rounded-full bg-white hover:bg-neutral-200 text-black font-display font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2 transition-all duration-200 shadow-lg shadow-white/10 hover:scale-105"
+                  className="px-6 py-3.5 rounded-full bg-white hover:bg-neutral-200 text-black font-display font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2 transition-colors duration-200 shadow-lg shadow-white/10"
                 >
                   <Mail className="w-4 h-4" />
                   <span>GET IN TOUCH</span>
@@ -79,12 +78,9 @@ export default function Footer({ onOpenResume }) {
             <div className="lg:col-span-5 flex flex-col gap-4 font-mono text-xs">
               
               <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-                <div className="flex items-center gap-1.5 mb-1">
-                  <span className="text-[#bef264] font-bold text-xs">*</span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#bef264] block">
-                    DIRECT EMAIL
-                  </span>
-                </div>
+                <span className="text-[10px] uppercase tracking-widest text-[#bef264] block mb-1">
+                  DIRECT EMAIL
+                </span>
                 <a 
                   href="mailto:rithinrakesh2002@gmail.com" 
                   className="text-white hover:text-[#bef264] transition-colors text-sm font-semibold tracking-wider"
@@ -94,12 +90,9 @@ export default function Footer({ onOpenResume }) {
               </div>
 
               <div className="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-                <div className="flex items-center gap-1.5 mb-1">
-                  <span className="text-[#bef264] font-bold text-xs">*</span>
-                  <span className="text-[10px] uppercase tracking-widest text-[#bef264] block">
-                    LOCATION
-                  </span>
-                </div>
+                <span className="text-[10px] uppercase tracking-widest text-[#bef264] block mb-1">
+                  LOCATION
+                </span>
                 <span className="text-white text-sm font-semibold tracking-wider">
                   Kannur, Kerala, India · IST (UTC+05:30)
                 </span>
@@ -148,7 +141,7 @@ export default function Footer({ onOpenResume }) {
             <span>GitHub</span>
           </a>
           <a 
-            href="https://www.linkedin.com/in/rithin-rakesh-3a9504283/" 
+            href="https://www.linkedin.com/in/rithinrakesh" 
             target="_blank" 
             rel="noreferrer" 
             className="hover:text-[#ff5500] transition-colors flex items-center gap-1.5"

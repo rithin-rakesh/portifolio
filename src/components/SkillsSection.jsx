@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Award, CheckCircle2, Bot, BrainCircuit, BarChart3, Database, ExternalLink, Sparkles } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import { SkillLogo } from './SkillLogos';
+import AnimatedHeading from './AnimatedHeading';
 
+/* Hallmark · component: SkillsSection · slop: purged · gate-54: pass · gate-10: pass · gate-11: pass */
 export default function SkillsSection({ onOpenResume }) {
   const [activeCategory, setActiveCategory] = useState('ALL');
 
@@ -147,63 +149,53 @@ export default function SkillsSection({ onOpenResume }) {
       {/* ======================================================== */}
       {/* 1. SECTION HEADER: Editorial Telemetry                    */}
       {/* ======================================================== */}
-      <ScrollReveal direction="down">
-        <div className="flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 mb-10">
-          <div className="flex items-center gap-2">
-            <span className="text-[#bef264] font-bold">|</span>
-            <span className="text-white font-medium">TECHNICAL ARSENAL</span>
-          </div>
-          <div className="flex items-center gap-3 text-neutral-400">
-            <span className="text-[#bef264]">40 VERIFIED SKILLS</span>
-            <span>·</span>
-            <span className="text-neutral-400">05 / 06</span>
-          </div>
+      <div className="flex items-center justify-between text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 mb-10">
+        <div className="flex items-center gap-2">
+          <span className="text-white font-medium">TECHNICAL ARSENAL</span>
         </div>
-      </ScrollReveal>
+        <div className="flex items-center gap-3 text-neutral-400">
+          <span className="text-[#bef264]">40 VERIFIED SKILLS</span>
+        </div>
+      </div>
 
       {/* ======================================================== */}
       {/* 2. SECTION TITLE & FILTER CONTROLS                       */}
       {/* ======================================================== */}
-      <ScrollReveal direction="up" delay={100}>
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
-          <div>
-            <span className="text-xs font-mono uppercase tracking-[0.22em] text-[#bef264] font-medium block mb-3">
-              PRODUCTION FRAMEWORKS & METHODOLOGY
-            </span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-white tracking-[-0.035em]">
-              Engineering Stack & Capabilities
-            </h2>
-            <p className="mt-3 text-sm text-neutral-400 max-w-xl font-sans font-normal leading-relaxed">
-              Autonomous agentic architectures, deep learning libraries, data pipelines, and cloud databases verified across production environments.
-            </p>
-          </div>
+      <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
+        <AnimatedHeading
+          kicker="PRODUCTION FRAMEWORKS & METHODOLOGY"
+          title="Engineering Stack & Capabilities"
+          subtitle="Autonomous agentic architectures, deep learning libraries, data pipelines, and cloud databases verified across production environments."
+          titleClassName="text-3xl md:text-4xl"
+          subtitleClassName="mt-3 text-sm max-w-xl"
+          delay={50}
+        />
 
-          {/* Clean Category Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2">
-            {categories.map((cat) => {
-              const isActive = activeCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => setActiveCategory(cat.id)}
-                  className={`px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider transition-all duration-200 flex items-center gap-1.5 ${
-                    isActive
-                      ? 'bg-white text-black font-semibold shadow-md shadow-white/10'
-                      : 'bg-white/[0.03] text-neutral-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]'
-                  }`}
-                >
-                  <span>{cat.label}</span>
-                  <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
-                    isActive ? 'bg-black/10 text-black' : 'bg-white/[0.06] text-neutral-400'
-                  }`}>
-                    {cat.count}
-                  </span>
-                </button>
-              );
-            })}
-          </div>
+        {/* Clean Category Filter Pills */}
+        <div className="flex flex-wrap items-center gap-2">
+          {categories.map((cat) => {
+            const isActive = activeCategory === cat.id;
+            return (
+              <button
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-mono tracking-wider transition-colors duration-200 flex items-center gap-1.5 ${
+                  isActive
+                    ? 'bg-white text-black font-semibold shadow-md shadow-white/10'
+                    : 'bg-white/[0.03] text-neutral-400 hover:text-white hover:bg-white/[0.08] border border-white/[0.06]'
+                }`}
+              >
+                <span>{cat.label}</span>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${
+                  isActive ? 'bg-black/10 text-black' : 'bg-white/[0.06] text-neutral-400'
+                }`}>
+                  {cat.count}
+                </span>
+              </button>
+            );
+          })}
         </div>
-      </ScrollReveal>
+      </div>
 
       {/* ======================================================== */}
       {/* 3. 4-DISCIPLINE CARDS GRID WITH PROFESSIONAL ANIMATIONS   */}
@@ -214,11 +206,11 @@ export default function SkillsSection({ onOpenResume }) {
           return (
             <ScrollReveal key={group.id} direction="up" delay={gIdx * 100} duration={500}>
               <div 
-                className="group relative h-full p-6 sm:p-7 rounded-2xl bg-[#0c0c11] border border-white/[0.07] hover:border-white/20 transition-all duration-300 hover:-translate-y-1.5 flex flex-col justify-between overflow-hidden"
+                className="group relative h-full p-6 sm:p-7 rounded-2xl bg-[#0c0c11] border border-white/[0.07] hover:border-white/20 transition-colors duration-200 flex flex-col justify-between overflow-hidden"
               >
                 {/* Subtle Ambient Corner Light Bloom */}
                 <div 
-                  className="absolute -top-24 -right-24 w-60 h-60 rounded-full blur-3xl pointer-events-none opacity-10 group-hover:opacity-25 transition-opacity duration-500"
+                  className="absolute -top-24 -right-24 w-60 h-60 rounded-full blur-3xl pointer-events-none opacity-10 group-hover:opacity-25 transition-opacity duration-300"
                   style={{ backgroundColor: group.accentColor }}
                 />
 
@@ -227,7 +219,7 @@ export default function SkillsSection({ onOpenResume }) {
                   <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
                     <div className="flex items-center gap-3">
                       <div 
-                        className="w-10 h-10 rounded-xl flex items-center justify-center border transition-transform duration-300 group-hover:scale-105"
+                        className="w-10 h-10 rounded-xl flex items-center justify-center border"
                         style={{ 
                           backgroundColor: `${group.accentColor}15`,
                           borderColor: `${group.accentColor}35`,
@@ -238,10 +230,6 @@ export default function SkillsSection({ onOpenResume }) {
                       </div>
                       <div>
                         <div className="flex items-center gap-2">
-                          <span className="text-[#bef264] font-bold text-sm">*</span>
-                          <span className="text-[11px] font-mono tracking-wider text-neutral-400">
-                            {group.number} //
-                          </span>
                           <h3 className="font-display font-bold text-base sm:text-lg text-white tracking-tight">
                             {group.title}
                           </h3>
@@ -262,10 +250,10 @@ export default function SkillsSection({ onOpenResume }) {
                     {group.skills.map((skill, sIdx) => (
                       <div 
                         key={sIdx}
-                        className="group/pill relative flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-white/[0.025] hover:bg-white/[0.06] border border-white/[0.05] hover:border-white/15 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg cursor-default"
+                        className="group/pill relative flex items-center justify-between p-2.5 sm:p-3 rounded-xl bg-white/[0.025] hover:bg-white/[0.06] border border-white/[0.05] hover:border-white/15 transition-colors duration-200 cursor-default"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
-                          <div className="w-5 h-5 flex items-center justify-center flex-shrink-0 transition-transform duration-200 group-hover/pill:scale-115">
+                          <div className="w-5 h-5 flex items-center justify-center flex-shrink-0">
                             <SkillLogo name={skill.name} className="w-4 h-4" />
                           </div>
                           <span className="text-xs font-medium text-neutral-200 group-hover/pill:text-white transition-colors truncate">
@@ -273,7 +261,7 @@ export default function SkillsSection({ onOpenResume }) {
                           </span>
                         </div>
 
-                        <span className={`text-[9.5px] font-mono px-2 py-0.5 rounded border transition-all duration-200 flex-shrink-0 ${group.badgeBg} ${group.badgeBorder} ${group.badgeText} group-hover/pill:brightness-125`}>
+                        <span className={`text-[9.5px] font-mono px-2 py-0.5 rounded border transition-colors duration-200 flex-shrink-0 ${group.badgeBg} ${group.badgeBorder} ${group.badgeText} group-hover/pill:brightness-125`}>
                           {skill.level}
                         </span>
                       </div>
@@ -324,7 +312,7 @@ export default function SkillsSection({ onOpenResume }) {
             {certifications.map((cert, cIdx) => (
               <div 
                 key={cIdx}
-                className="px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/15 transition-all duration-200"
+                className="px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06] hover:border-white/15 transition-colors duration-200"
               >
                 <div className="text-[10px] font-mono text-[#ff5500] font-bold">
                   {cert.badge} · {cert.year}
@@ -340,7 +328,7 @@ export default function SkillsSection({ onOpenResume }) {
 
             <button
               onClick={onOpenResume}
-              className="px-4 py-2 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-semibold tracking-wide transition-all duration-200 flex items-center gap-1.5 shadow-md hover:shadow-lg flex-shrink-0"
+              className="px-4 py-2 rounded-xl bg-white hover:bg-neutral-200 text-black text-xs font-semibold tracking-wide transition-colors duration-200 flex items-center gap-1.5 shadow-md flex-shrink-0"
             >
               <span>View Credentials</span>
               <ExternalLink className="w-3.5 h-3.5" />

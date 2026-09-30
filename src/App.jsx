@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Navbar from './components/Navbar';
 import HeroSection from './components/HeroSection';
 import AboutSection from './components/AboutSection';
@@ -9,18 +9,16 @@ import Footer from './components/Footer';
 import AgentWorkflowModal from './components/AgentWorkflowModal';
 import ResumeModal from './components/ResumeModal';
 import ScrollProgressBar from './components/ScrollProgressBar';
-import CustomCursor from './components/CustomCursor';
+import InteractiveGrainBackground from './components/InteractiveGrainBackground';
 
 export default function App() {
   const [workflowModalOpen, setWorkflowModalOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
+  const curtainRef = useRef(null);
 
   return (
-    <div className="min-h-screen ambient-canvas text-[#e4e4eb] antialiased selection:bg-[#ff5500] selection:text-white relative cursor-default">
+    <div className="min-h-screen ambient-canvas text-[#e4e4eb] antialiased selection:bg-[#ff5500] selection:text-white relative">
       
-      {/* Interactive Fluid Cursor Animation */}
-      <CustomCursor />
-
       {/* Top Scroll Progress Indicator */}
       <ScrollProgressBar />
 
@@ -33,21 +31,30 @@ export default function App() {
         <HeroSection onOpenResume={() => setResumeModalOpen(true)} />
 
         {/* The Page Coming From Under the Hero Section (Curtain Card Reveal) */}
-        <div className="relative z-20 w-full bg-[#08070d] rounded-t-[2.5rem] sm:rounded-t-[3.5rem] lg:rounded-t-[4.5rem] shadow-[0_-35px_100px_rgba(0,0,0,0.95)] border-t border-white/15">
-          {/* About Section */}
-          <AboutSection />
+        <div 
+          ref={curtainRef}
+          className="relative z-20 w-full bg-[#08070d] rounded-t-[2.5rem] sm:rounded-t-[3.5rem] lg:rounded-t-[4.5rem] shadow-[0_-35px_100px_rgba(0,0,0,0.95)] border-t border-white/15"
+        >
+          {/* Interactive Moving Grains with Respect to Cursor (Strictly in the background of sections after Hero) */}
+          <InteractiveGrainBackground curtainRef={curtainRef} />
 
-          {/* Experience Section */}
-          <ExperienceSection />
+          {/* Section Content Layers (Crisply elevated above background grains) */}
+          <div className="relative z-10">
+            {/* About Section */}
+            <AboutSection />
 
-          {/* Projects Section with Horizontal Scroll Track */}
-          <ProjectsSection onOpenWorkflow={() => setWorkflowModalOpen(true)} />
+            {/* Experience Section */}
+            <ExperienceSection />
 
-          {/* Skills Section */}
-          <SkillsSection />
+            {/* Projects Section with Horizontal Scroll Track */}
+            <ProjectsSection onOpenWorkflow={() => setWorkflowModalOpen(true)} />
 
-          {/* Contact & Footer Section */}
-          <Footer onOpenResume={() => setResumeModalOpen(true)} />
+            {/* Skills Section */}
+            <SkillsSection />
+
+            {/* Contact & Footer Section */}
+            <Footer onOpenResume={() => setResumeModalOpen(true)} />
+          </div>
         </div>
       </main>
 

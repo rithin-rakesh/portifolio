@@ -87,7 +87,7 @@ export default function AgentWorkflowModal({ isOpen, onClose }) {
               return (
                 <div 
                   key={idx}
-                  className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-[#ff5500]/30 transition-all flex flex-col sm:flex-row sm:items-center gap-4"
+                  className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06] hover:border-[#ff5500]/30 transition-colors duration-200 flex flex-col sm:flex-row sm:items-center gap-4"
                 >
                   <div className="flex items-center gap-3 sm:w-2/5 shrink-0">
                     <span className="text-sm font-mono font-bold text-[#ff5500]">
