@@ -27,7 +27,7 @@ export default function App() {
 
       {/* Main Content Layout with Fluid Scroll Flow */}
       <main className="relative z-10 flex flex-col">
-        {/* Full-Bleed Sticky Hero Section */}
+        {/* Full-Bleed Sticky Hero Section with Reactive Caustic Light */}
         <HeroSection onOpenResume={() => setResumeModalOpen(true)} />
 
         {/* The Page Coming From Under the Hero Section (Curtain Card Reveal) */}
