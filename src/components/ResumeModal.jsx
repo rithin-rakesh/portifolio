@@ -212,6 +212,20 @@ export default function ResumeModal({ isOpen, onClose }) {
 
               <div>
                 <div className="flex items-center justify-between">
+                  <h3 className="font-bold text-white">Kannur Trails — Tourism & Travel Management Platform</h3>
+                  <span className="font-mono text-neutral-400">2026 — Present</span>
+                </div>
+                <p className="text-[11px] font-mono text-[#bef264] mt-0.5">React · TypeScript · Vite · Tailwind CSS · Cloudflare Workers · D1 & R2</p>
+                <ul className="mt-1.5 space-y-1 text-neutral-300">
+                  <li>• Designed and developed a full-stack travel platform bringing together 85 destinations, curated travel packages, and custom trip planning workflows.</li>
+                  <li>• Built customer-facing discovery interfaces and an owner administration portal for content publishing, media uploads, quotation preparation, and revenue reporting.</li>
+                  <li>• Engineered custom trip enquiries with destination selections, travel preferences, dynamic currency choices, and branded PDF generation.</li>
+                  <li>• Deployed on Cloudflare Workers edge runtime with Cloudflare D1 SQL database and R2 object storage with email-verification security safeguards.</li>
+                </ul>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between">
                   <h3 className="font-bold text-white">Brain Tumor Classification using Transfer Learning</h3>
                   <span className="font-mono text-neutral-400">2025</span>
                 </div>

@@ -64,6 +64,30 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
             </p>
           </div>
 
+          {/* Platform Interface Preview (if project has an image) */}
+          {project.image && (
+            <div className="rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-2xl">
+              <div className="flex items-center justify-between px-5 py-3 bg-[#12111d] border-b border-white/10 text-xs font-mono text-neutral-300">
+                <div className="flex items-center gap-2.5">
+                  <span className="w-2 h-2 rounded-full bg-[#bef264] animate-pulse" />
+                  <span className="font-semibold text-white tracking-wider uppercase">
+                    PLATFORM INTERFACE PREVIEW
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] px-2.5 py-0.5 rounded bg-emerald-400/10 text-emerald-400 font-mono uppercase tracking-wider">
+                    CLOUDFLARE EDGE PREVIEW
+                  </span>
+                </div>
+              </div>
+              <img 
+                src={project.image} 
+                alt={project.title} 
+                className="w-full max-h-[460px] object-cover object-top"
+              />
+            </div>
+          )}
+
           {/* Architecture Pipeline Telemetry Grid */}
           <div className="p-6 sm:p-8 rounded-2xl bg-black/50 border border-white/15">
             <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-6 font-mono text-xs">
@@ -180,16 +204,18 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
                 </span>
                 <div className="space-y-2 text-xs text-neutral-200">
                   <div className="flex justify-between py-1 border-b border-white/10 font-sans">
-                    <span>Validation Accuracy:</span>
-                    <span className="font-bold text-white font-mono">{project.metric || 'Production Ready'}</span>
+                    <span>{project.metricLabel || 'Performance'}:</span>
+                    <span className="font-bold text-white font-mono">{project.metricValue || project.metric || 'Production Ready'}</span>
                   </div>
                   <div className="flex justify-between py-1 border-b border-white/10 font-sans">
                     <span>Status:</span>
                     <span className="text-emerald-400 font-bold font-mono">VERIFIED</span>
                   </div>
                   <div className="flex justify-between py-1 font-sans">
-                    <span>Implementation:</span>
-                    <span className="text-white font-mono">Python / PyTorch</span>
+                    <span>Stack:</span>
+                    <span className="text-white font-mono truncate max-w-[170px] text-right">
+                      {project.telemetry.runtime || project.telemetry.framework || project.telemetry.frontend || project.telemetry.environment || 'Production'}
+                    </span>
                   </div>
                 </div>
               </div>

@@ -21,7 +21,7 @@ export default function ProjectsSection() {
   const isAnimatingRef = useRef(false);
   const containerRef = useRef(null);
 
-  // STRICTLY THE 3 RESUME PROJECTS (100% GROUNDED, MINIMAL & PROFESSIONAL)
+  // STRICTLY THE 4 RESUME PROJECTS (100% GROUNDED, MINIMAL & PROFESSIONAL)
   const projects = [
     {
       id: 'job-agent',
@@ -54,8 +54,42 @@ export default function ProjectsSection() {
       metric: '96.2% Candidate Match Rate'
     },
     {
-      id: 'brain-tumor',
+      id: 'kannur-trails',
       number: '02',
+      title: 'KANNUR TRAILS',
+      period: '2026 – PRESENT',
+      subtitle: 'Full-stack tourism discovery & travel management platform on Cloudflare edge',
+      category: 'Full-Stack Platform',
+      metricLabel: 'Catalog Depth',
+      metricValue: '85 Destinations',
+      image: '/projects/kannur_trails.jpg',
+      architectureNodes: [
+        { label: 'Discovery Engine', tech: '85 Stays & Packages', status: 'DEPLOYED' },
+        { label: 'Trip Planner', tech: 'Custom Multi-Currency Inquiries', status: 'ACTIVE' },
+        { label: 'Document Service', tech: 'Branded PDF Generation', status: 'SYNCHRONIZED' },
+        { label: 'Edge Data Store', tech: 'Cloudflare D1 & R2', status: 'VERIFIED' }
+      ],
+      telemetry: {
+        frontend: 'React / TypeScript / Vite / Tailwind CSS',
+        edgeRuntime: 'Cloudflare Workers (Edge Engine)',
+        persistence: 'Cloudflare D1 (SQL) & R2 (Media)',
+        deployment: 'Cloudflare Edge Preview'
+      },
+      description: 'A full-stack travel platform bringing together 85 destinations, curated travel packages, and a custom trip planner with an owner administration portal for quotation and revenue management.',
+      bullets: [
+        'Destination, accommodation, and package directories with searchable content, dynamic filters, and responsive image galleries.',
+        'Custom trip enquiries with destination selections, travel preferences, and real-time currency choices.',
+        'Versioned quotations, branded PDF generation, and private customer trip itinerary portals.',
+        'Owner administration portal for content publishing, media uploads, quotation preparation, and revenue reporting.',
+        'Email-verification safeguards for sensitive trip actions and controls to revoke compromised private links.'
+      ],
+      details: 'Designed and developed both the customer website and owner administration portal connecting destination discovery with practical enquiry, quotation, and booking workflows. Engineered on Cloudflare Workers with D1 SQL database and R2 object storage, featuring light/dark themes and reduced-motion support.',
+      tags: ['React', 'TypeScript', 'Tailwind CSS', 'Cloudflare Workers', 'Cloudflare D1', 'Cloudflare R2'],
+      metric: '85 Destinations / Edge Deployed'
+    },
+    {
+      id: 'brain-tumor',
+      number: '03',
       title: 'BRAIN TUMOR CLASSIFICATION',
       period: '2025',
       subtitle: 'Medical image diagnostics powered by transfer learning',
@@ -85,7 +119,7 @@ export default function ProjectsSection() {
     },
     {
       id: 'loan-fraud',
-      number: '03',
+      number: '04',
       title: 'BANK LOAN FRAUD DETECTION',
       period: '2025',
       subtitle: 'Predictive risk scoring and financial anomaly detection',
@@ -427,7 +461,7 @@ export default function ProjectsSection() {
 
                 </div>
 
-                {/* RIGHT COLUMN: Interactive High-Tech Vector Architectural Blueprint */}
+                {/* RIGHT COLUMN: Interactive High-Tech Vector Architectural Blueprint or Platform Preview */}
                 <div className="lg:col-span-6 flex flex-col justify-center pointer-events-auto">
                   
                   <div 
@@ -439,7 +473,7 @@ export default function ProjectsSection() {
                       <div className="flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#bef264] animate-pulse" />
                         <span className="text-white font-semibold uppercase tracking-wider">
-                          SYSTEM ARCHITECTURE
+                          {project.image ? 'LIVE PLATFORM PREVIEW' : 'SYSTEM ARCHITECTURE'}
                         </span>
                       </div>
                       <span className="text-[11px] px-2.5 py-0.5 rounded bg-white/10 text-neutral-300 uppercase tracking-widest">
@@ -447,55 +481,100 @@ export default function ProjectsSection() {
                       </span>
                     </div>
 
-                    {/* Architecture Nodes Flow (Pure Code/Vector - No Raster Images) */}
-                    <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-1.5 mb-2">
-                        <span className="text-[11px] font-sans font-medium text-[#bef264] uppercase tracking-wider">
-                          Pipeline Stages
-                        </span>
-                      </div>
-                      
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {project.architectureNodes.map((node, nIdx) => (
-                          <div 
-                            key={nIdx}
-                            className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] flex flex-col justify-between hover:border-white/20 transition-colors"
-                          >
-                            <div className="flex items-center justify-between mb-1.5">
-                              <span className="text-xs font-display font-bold text-white uppercase">
-                                {node.label}
-                              </span>
-                              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-400/10 text-emerald-400 font-semibold uppercase">
-                                {node.status}
-                              </span>
+                    {project.image ? (
+                      /* Minimalist Image Viewport Vessel */
+                      <div className="space-y-4 mb-2">
+                        <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black/60 shadow-inner group/img">
+                          {/* Minimalist Browser Frame Bar */}
+                          <div className="flex items-center justify-between px-3.5 py-2 bg-white/[0.04] border-b border-white/[0.08] text-[11px] font-mono text-neutral-400">
+                            <div className="flex items-center gap-1.5">
+                              <span className="w-2 h-2 rounded-full bg-white/20" />
+                              <span className="w-2 h-2 rounded-full bg-white/20" />
+                              <span className="w-2 h-2 rounded-full bg-white/20" />
                             </div>
-                            <span className="text-[11px] font-sans text-neutral-400">
-                              {node.tech}
+                            <span className="text-neutral-300 text-[11px] font-mono px-2 py-0.5 rounded bg-white/[0.05] border border-white/[0.05]">
+                              kannurtrails.com
+                            </span>
+                            <span className="text-emerald-400 text-[10px] uppercase font-semibold">
+                              Edge Live
                             </span>
                           </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Grounded Telemetry Specs in Aesthetic Typography */}
-                    <div className="p-4 rounded-2xl bg-black/60 border border-white/[0.08] space-y-2 text-xs">
-                      <span className="text-[11px] font-sans font-medium text-neutral-400 block mb-1">
-                        Environment Specs
-                      </span>
-                      
-                      {Object.entries(project.telemetry).map(([k, v], tIdx) => (
-                        <div key={tIdx} className="flex flex-col sm:flex-row sm:items-center justify-between py-1 border-b border-white/[0.04] last:border-0 text-xs">
-                          <span className="text-neutral-400 font-sans capitalize">{k.replace(/([A-Z])/g, ' $1')}:</span>
-                          <span className="text-neutral-200 font-mono text-[11px] font-medium sm:text-right">{v}</span>
+                          
+                          <img 
+                            src={project.image} 
+                            alt={project.title} 
+                            className="w-full h-[220px] sm:h-[260px] object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]" 
+                            loading="lazy"
+                          />
                         </div>
-                      ))}
-                    </div>
+
+                        {/* Edge Telemetry Badges */}
+                        <div className="grid grid-cols-2 gap-2.5 text-xs">
+                          <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                            <span className="text-[10px] font-mono text-[#bef264] uppercase tracking-wider block mb-0.5">Edge Runtime</span>
+                            <span className="text-white font-display font-bold text-xs uppercase">Cloudflare Workers</span>
+                            <p className="text-[11px] font-sans text-neutral-400 mt-0.5">D1 SQL · R2 Object Store</p>
+                          </div>
+                          <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                            <span className="text-[10px] font-mono text-[#bef264] uppercase tracking-wider block mb-0.5">Operations</span>
+                            <span className="text-white font-display font-bold text-xs uppercase">Admin & Quotations</span>
+                            <p className="text-[11px] font-sans text-neutral-400 mt-0.5">Branded PDF & Token Auth</p>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <>
+                        {/* Architecture Nodes Flow (Pure Code/Vector - No Raster Images) */}
+                        <div className="space-y-3 mb-6">
+                          <div className="flex items-center gap-1.5 mb-2">
+                            <span className="text-[11px] font-sans font-medium text-[#bef264] uppercase tracking-wider">
+                              Pipeline Stages
+                            </span>
+                          </div>
+                          
+                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            {project.architectureNodes.map((node, nIdx) => (
+                              <div 
+                                key={nIdx}
+                                className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06] flex flex-col justify-between hover:border-white/20 transition-colors"
+                              >
+                                <div className="flex items-center justify-between mb-1.5">
+                                  <span className="text-xs font-display font-bold text-white uppercase">
+                                    {node.label}
+                                  </span>
+                                  <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-400/10 text-emerald-400 font-semibold uppercase">
+                                    {node.status}
+                                  </span>
+                                </div>
+                                <span className="text-[11px] font-sans text-neutral-400">
+                                  {node.tech}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Grounded Telemetry Specs in Aesthetic Typography */}
+                        <div className="p-4 rounded-2xl bg-black/60 border border-white/[0.08] space-y-2 text-xs">
+                          <span className="text-[11px] font-sans font-medium text-neutral-400 block mb-1">
+                            Environment Specs
+                          </span>
+                          
+                          {Object.entries(project.telemetry).map(([k, v], tIdx) => (
+                            <div key={tIdx} className="flex flex-col sm:flex-row sm:items-center justify-between py-1 border-b border-white/[0.04] last:border-0 text-xs">
+                              <span className="text-neutral-400 font-sans capitalize">{k.replace(/([A-Z])/g, ' $1')}:</span>
+                              <span className="text-neutral-200 font-mono text-[11px] font-medium sm:text-right">{v}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </>
+                    )}
 
                     {/* Bottom Grounded Status Bar */}
                     <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-neutral-400">
                       <div className="flex items-center gap-2 font-sans">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                        <span>Production Architecture</span>
+                        <span>{project.image ? 'Cloudflare Edge Deployment' : 'Production Architecture'}</span>
                       </div>
                       <span className="text-[#ff5500] font-mono text-xs font-semibold">{project.metric}</span>
                     </div>

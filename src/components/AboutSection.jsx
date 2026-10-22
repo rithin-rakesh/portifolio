@@ -45,7 +45,7 @@ export default function AboutSection() {
               <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block mt-1">SRM B.Tech</span>
             </div>
             <div>
-              <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight block">03</span>
+              <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight block">04</span>
               <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block mt-1">Core Projects</span>
             </div>
             <div>
