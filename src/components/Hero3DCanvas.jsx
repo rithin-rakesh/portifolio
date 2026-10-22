@@ -2,11 +2,10 @@ import React, { useEffect, useRef } from 'react';
 
 /**
  * Hero3DCanvas
- * - GPU-accelerated Canvas rendering a slow, calm 3D spatial particle constellation,
- *   subtle isometric horizon grid, and multi-chroma reactive caustic field.
- * - Tuned for slow, luxurious cinematic drift and soft inertia that enhances
- *   text readability and delivers a high-end minimalist experience.
- * - Battery & GPU friendly: auto-pauses when tab is hidden or scrolled out of view.
+ * - Ultra-slow, serene 3D spatial particle constellation, soft receding horizon grid,
+ *   and gentle multi-chroma caustic volumetric field.
+ * - Tuned for whisper-quiet, meditative ambient drift so that text remains the primary focus.
+ * - Auto-pauses when tab is hidden or scrolled out of view.
  */
 export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y: 0 } }) {
   const canvasRef = useRef(null);
@@ -23,22 +22,22 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
     let animId = null;
     let isTabVisible = true;
 
-    // Smoothed interpolation states with luxurious gentle damping
+    // Smoothed interpolation states with ultra-gentle damping
     let lerpMouseX = 0;
     let lerpMouseY = 0;
     let lerpScroll = 0;
 
-    // 3D Particles Constellation - Slow, serene cosmic drift
-    const NUM_PARTICLES = 46;
+    // 3D Particles Constellation - Barely-moving cosmic dust
+    const NUM_PARTICLES = 40;
     const particles = [];
     for (let i = 0; i < NUM_PARTICLES; i++) {
       particles.push({
         x: (Math.random() - 0.5) * 1400,
         y: (Math.random() - 0.5) * 850,
         z: (Math.random() - 0.5) * 900,
-        baseSize: Math.random() * 2.0 + 0.6,
-        orbitSpeed: (Math.random() * 0.0012 + 0.0004) * (Math.random() > 0.5 ? 1 : -1),
-        orbitRadius: Math.random() * 60 + 15,
+        baseSize: Math.random() * 1.8 + 0.6,
+        orbitSpeed: (Math.random() * 0.00025 + 0.0001) * (Math.random() > 0.5 ? 1 : -1),
+        orbitRadius: Math.random() * 35 + 10,
         phase: Math.random() * Math.PI * 2,
         colorType: i % 3 // 0: lime, 1: orange, 2: white
       });
@@ -75,21 +74,21 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
         return;
       }
 
-      // Slower, calmer time progression (~65% slower for tranquil drift)
-      time += 0.005;
+      // Ultra-slow, barely-moving time progression (0.0008 = whisper-quiet ambient drift)
+      time += 0.0008;
 
-      // Gentle, luxurious cursor inertia (reduced damping factor)
-      lerpMouseX += (mousePos.x - lerpMouseX) * 0.022;
-      lerpMouseY += (mousePos.y - lerpMouseY) * 0.022;
-      lerpScroll += (scrollProgress - lerpScroll) * 0.05;
+      // Extremely gentle, luxurious cursor inertia (reduced damping factor)
+      lerpMouseX += (mousePos.x - lerpMouseX) * 0.01;
+      lerpMouseY += (mousePos.y - lerpMouseY) * 0.01;
+      lerpScroll += (scrollProgress - lerpScroll) * 0.04;
 
       ctx.clearRect(0, 0, width, height);
 
       // ----------------------------------------------------------------------
-      // 1. DYNAMIC MULTI-CHROMA CAUSTIC VOLUMETRIC LIGHTING (Calm Breathing)
+      // 1. DYNAMIC MULTI-CHROMA CAUSTIC VOLUMETRIC LIGHTING (Tranquil Breathing)
       // ----------------------------------------------------------------------
-      const centerX = width * 0.5 + lerpMouseX * 35;
-      const centerY = height * 0.42 + lerpMouseY * 25;
+      const centerX = width * 0.5 + lerpMouseX * 18;
+      const centerY = height * 0.42 + lerpMouseY * 14;
 
       // Color interpolation according to chapter
       const chapter = lerpScroll * 3; // 0 to 3
@@ -122,28 +121,28 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
         accentB = Math.round(248 * (1 - t) + 212 * t);
       }
 
-      // Primary Caustic Core (Slow, deep wave)
-      const coreX = centerX + Math.sin(time * 0.35) * 12;
-      const coreY = centerY + Math.cos(time * 0.3) * 10;
-      const coreRadius = Math.max(180, width * 0.36);
+      // Primary Caustic Core (Ultra-slow, deep wave)
+      const coreX = centerX + Math.sin(time * 0.15) * 6;
+      const coreY = centerY + Math.cos(time * 0.12) * 5;
+      const coreRadius = Math.max(180, width * 0.35);
 
       const coreGrad = ctx.createRadialGradient(coreX, coreY, 0, coreX, coreY, coreRadius);
-      coreGrad.addColorStop(0, `rgba(${primaryR}, ${primaryG}, ${primaryB}, 0.22)`);
-      coreGrad.addColorStop(0.4, `rgba(${primaryR}, ${primaryG}, ${primaryB}, 0.08)`);
-      coreGrad.addColorStop(0.8, `rgba(${primaryR}, ${primaryG}, ${primaryB}, 0.015)`);
+      coreGrad.addColorStop(0, `rgba(${primaryR}, ${primaryG}, ${primaryB}, 0.20)`);
+      coreGrad.addColorStop(0.4, `rgba(${primaryR}, ${primaryG}, ${primaryB}, 0.07)`);
+      coreGrad.addColorStop(0.8, `rgba(${primaryR}, ${primaryG}, ${primaryB}, 0.01)`);
       coreGrad.addColorStop(1, 'rgba(7, 7, 9, 0)');
 
       ctx.fillStyle = coreGrad;
       ctx.fillRect(0, 0, width, height);
 
       // Counter-Balanced Accent Rim (Gentle orbit)
-      const rimX = width * 0.60 - lerpMouseX * 25 + Math.cos(time * 0.4) * 14;
-      const rimY = height * 0.32 - lerpMouseY * 18 + Math.sin(time * 0.45) * 12;
-      const rimRadius = Math.max(150, width * 0.28);
+      const rimX = width * 0.60 - lerpMouseX * 12 + Math.cos(time * 0.18) * 8;
+      const rimY = height * 0.32 - lerpMouseY * 10 + Math.sin(time * 0.15) * 6;
+      const rimRadius = Math.max(150, width * 0.26);
 
       const rimGrad = ctx.createRadialGradient(rimX, rimY, 0, rimX, rimY, rimRadius);
-      rimGrad.addColorStop(0, `rgba(${accentR}, ${accentG}, ${accentB}, 0.14)`);
-      rimGrad.addColorStop(0.45, `rgba(${accentR}, ${accentG}, ${accentB}, 0.04)`);
+      rimGrad.addColorStop(0, `rgba(${accentR}, ${accentG}, ${accentB}, 0.12)`);
+      rimGrad.addColorStop(0.45, `rgba(${accentR}, ${accentG}, ${accentB}, 0.035)`);
       rimGrad.addColorStop(1, 'rgba(7, 7, 9, 0)');
 
       ctx.fillStyle = rimGrad;
@@ -154,22 +153,22 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
       // ----------------------------------------------------------------------
       const fov = 480;
       const horizonY = height * 0.64;
-      const gridScrollOffset = (lerpScroll * 600 + time * 12) % 70;
+      const gridScrollOffset = (lerpScroll * 220 + time * 3) % 70;
 
       ctx.save();
       ctx.lineWidth = 1;
 
       // Perspective longitudinal lines
-      const numLongLines = 16;
+      const numLongLines = 14;
       const spreadX = width * 1.3;
       for (let i = 0; i <= numLongLines; i++) {
         const norm = (i / numLongLines - 0.5) * 2;
         const xNear = width * 0.5 + norm * (spreadX * 0.85);
         const yNear = height + 40;
-        const xFar = width * 0.5 + norm * (spreadX * 0.05) + lerpMouseX * 25;
+        const xFar = width * 0.5 + norm * (spreadX * 0.05) + lerpMouseX * 12;
         const yFar = horizonY;
 
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.025)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.018)';
         ctx.beginPath();
         ctx.moveTo(xNear, yNear);
         ctx.lineTo(xFar, yFar);
@@ -177,13 +176,13 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
       }
 
       // Receding transverse depth lines
-      const numTransLines = 10;
+      const numTransLines = 9;
       for (let j = 0; j < numTransLines; j++) {
         const z = j * 70 - gridScrollOffset;
         if (z <= 10) continue;
         const scale = fov / (fov + z);
         const yLine = horizonY + (height - horizonY) * Math.pow(scale, 1.4);
-        const alpha = Math.max(0, Math.min(0.045, 0.05 * (1 - z / 800)));
+        const alpha = Math.max(0, Math.min(0.035, 0.04 * (1 - z / 800)));
 
         ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
         ctx.beginPath();
@@ -194,11 +193,11 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
       ctx.restore();
 
       // ----------------------------------------------------------------------
-      // 3. 3D ORBITING PARTICLE CONSTELLATION & SYNAPTIC CONNECTIONS (Calm Orbit)
+      // 3. 3D ORBITING PARTICLE CONSTELLATION & SYNAPTIC CONNECTIONS (Tranquil Drift)
       // ----------------------------------------------------------------------
-      // Calmer camera yaw/pitch: reduced rotation angles
-      const camYaw = lerpScroll * Math.PI * 0.60 + lerpMouseX * 0.16;
-      const camPitch = 0.12 + lerpMouseY * 0.10;
+      // Very gentle camera rotation: reduced yaw to 0.28*PI
+      const camYaw = lerpScroll * Math.PI * 0.28 + lerpMouseX * 0.08;
+      const camPitch = 0.10 + lerpMouseY * 0.05;
       const cosYaw = Math.cos(camYaw);
       const sinYaw = Math.sin(camYaw);
       const cosPitch = Math.cos(camPitch);
@@ -230,13 +229,13 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
         const screenY = height * 0.44 + y2 * projScale;
 
         // Depth cueing
-        const depthAlpha = Math.max(0.08, Math.min(0.70, (1 - (z2 - 200) / 1000)));
+        const depthAlpha = Math.max(0.06, Math.min(0.55, (1 - (z2 - 200) / 1000)));
 
         projected.push({
           x: screenX,
           y: screenY,
           scale: projScale,
-          size: p.baseSize * projScale * 1.6,
+          size: p.baseSize * projScale * 1.4,
           alpha: depthAlpha,
           colorType: p.colorType
         });
@@ -244,8 +243,8 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
 
       // Draw subtle connecting vector lines between nearby projected 3D nodes
       ctx.save();
-      ctx.lineWidth = 0.75;
-      const maxConnDist = Math.min(width * 0.14, 115);
+      ctx.lineWidth = 0.6;
+      const maxConnDist = Math.min(width * 0.12, 95);
 
       for (let i = 0; i < projected.length; i++) {
         for (let j = i + 1; j < projected.length; j++) {
@@ -256,7 +255,7 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < maxConnDist) {
-            const lineAlpha = (1 - dist / maxConnDist) * Math.min(p1.alpha, p2.alpha) * 0.22;
+            const lineAlpha = (1 - dist / maxConnDist) * Math.min(p1.alpha, p2.alpha) * 0.16;
             ctx.strokeStyle = `rgba(190, 242, 100, ${lineAlpha})`;
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
@@ -272,14 +271,14 @@ export default function Hero3DCanvas({ scrollProgress = 0, mousePos = { x: 0, y:
         if (p.x < -20 || p.x > width + 20 || p.y < -20 || p.y > height + 20) continue;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, Math.max(1, p.size), 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, Math.max(0.8, p.size), 0, Math.PI * 2);
 
         if (p.colorType === 0) {
-          ctx.fillStyle = `rgba(190, 242, 100, ${p.alpha * 0.85})`;
+          ctx.fillStyle = `rgba(190, 242, 100, ${p.alpha * 0.75})`;
         } else if (p.colorType === 1) {
-          ctx.fillStyle = `rgba(255, 85, 0, ${p.alpha * 0.85})`;
+          ctx.fillStyle = `rgba(255, 85, 0, ${p.alpha * 0.75})`;
         } else {
-          ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha * 0.75})`;
+          ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha * 0.65})`;
         }
         ctx.fill();
       }
