@@ -27,8 +27,13 @@ export default function Navbar({ onOpenResume }) {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Reveal sticky floating navbar only after scrolling past the hero
-      if (window.scrollY > 480) {
+      // Reveal sticky floating navbar only after scrolling past the 4-slide hero sequence
+      const heroEl = document.getElementById('home');
+      const threshold = heroEl 
+        ? heroEl.offsetTop + heroEl.offsetHeight - (window.innerHeight || 800) * 0.4
+        : (window.innerHeight || 800) * 3.2;
+
+      if (window.scrollY > threshold) {
         setVisible(true);
       } else {
         setVisible(false);
