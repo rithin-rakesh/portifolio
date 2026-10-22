@@ -126,13 +126,13 @@ export default function SkillsSection({ onOpenResume }) {
       badge: 'ML SPECIALIST'
     },
     {
-      title: 'AWS Academy Graduate — Machine Learning Foundations',
+      title: 'AWS Academy Graduate - Machine Learning Foundations',
       issuer: 'Amazon Web Services (AWS)',
       year: '2025',
       badge: 'AWS ML'
     },
     {
-      title: 'AWS Academy Graduate — Cloud Foundations',
+      title: 'AWS Academy Graduate - Cloud Foundations',
       issuer: 'Amazon Web Services (AWS)',
       year: '2024',
       badge: 'AWS CLOUD'
@@ -163,7 +163,6 @@ export default function SkillsSection({ onOpenResume }) {
       {/* ======================================================== */}
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12">
         <AnimatedHeading
-          kicker="PRODUCTION FRAMEWORKS & METHODOLOGY"
           title="Engineering Stack & Capabilities"
           subtitle="Autonomous agentic architectures, deep learning libraries, data pipelines, and cloud databases verified across production environments."
           titleClassName="text-3xl md:text-4xl"

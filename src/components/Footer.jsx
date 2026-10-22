@@ -37,7 +37,6 @@ export default function Footer({ onOpenResume }) {
             {/* Left Column */}
             <div className="lg:col-span-7">
               <AnimatedHeading
-                kicker="COMMUNICATION CHANNELS · OPEN TO ROLES · 2026"
                 title="Let's Build Something Intelligent Together"
                 subtitle="Open for AI/ML engineering roles, autonomous agentic systems architecture, and production collaborations."
                 titleClassName="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] leading-[1.08]"
@@ -111,7 +110,7 @@ export default function Footer({ onOpenResume }) {
                   onClick={onOpenResume}
                   className="px-4 py-2 rounded-full bg-white/10 hover:bg-[#ff5500] text-white transition-colors uppercase text-[11px] font-semibold tracking-wider"
                 >
-                  View CV
+                  View Resume
                 </button>
               </div>
 

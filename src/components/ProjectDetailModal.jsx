@@ -170,7 +170,7 @@ export default function ProjectDetailModal({ project, isOpen, onClose }) {
                 <div className="space-y-3">
                   {project.bullets.map((bullet, idx) => (
                     <div key={idx} className="flex items-start gap-3 p-3.5 rounded-xl bg-white/[0.025] border border-white/[0.06]">
-                      <span className="text-neutral-500 font-mono text-sm mt-0.5 select-none">—</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-white/30 mt-2 shrink-0 select-none" />
                       <p className="text-xs sm:text-[13.5px] font-sans text-neutral-200 font-normal leading-relaxed">
                         {bullet}
                       </p>

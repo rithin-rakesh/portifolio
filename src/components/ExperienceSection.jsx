@@ -13,7 +13,7 @@ export default function ExperienceSection() {
       type: 'INDUSTRY EXPERIENCE',
       role: 'AI Intern',
       organization: 'Leniko Solutions',
-      period: 'July 2026 — Present',
+      period: 'July 2026 - Present',
       location: 'India',
       status: 'Current Engagement',
       logo: '/logos/leniko.png',
@@ -31,7 +31,7 @@ export default function ExperienceSection() {
       type: 'DATA SCIENCE INTERNSHIP',
       role: 'Data Science Intern',
       organization: 'Luminar Technolab',
-      period: 'September 2025 — April 2026',
+      period: 'September 2025 - April 2026',
       location: 'Calicut, Kerala',
       status: 'Completed',
       logo: '/logos/luminar.png',
@@ -49,7 +49,7 @@ export default function ExperienceSection() {
       type: 'FORMAL ENGINEERING DEGREE',
       role: 'B.Tech in Computer Science',
       organization: 'SRM Institute of Science and Technology',
-      period: '2021 — 2025',
+      period: '2021 - 2025',
       location: 'Chennai, Tamil Nadu, India',
       status: 'Degree Conferred',
       logo: '/logos/srm.png',
@@ -58,7 +58,7 @@ export default function ExperienceSection() {
       glowClass: 'group-hover:border-blue-500/50 group-hover:shadow-[0_20px_50px_-10px_rgba(59,130,246,0.25)]',
       lightenDarkText: true,
       bullets: [
-        'Graduated with a Bachelor of Technology in Computer Science and Engineering (2021 – 2025).',
+        'Graduated with a Bachelor of Technology in Computer Science and Engineering (2021 - 2025).',
         'Rigorous foundation in Data Structures, Algorithms, Relational Databases, and Artificial Intelligence.'
       ],
       skills: ['Algorithms', 'Data Structures', 'SQL / MySQL', 'Distributed Systems', 'AI Foundations']
@@ -75,14 +75,14 @@ export default function ExperienceSection() {
       badge: 'ML SPECIALIST'
     },
     {
-      title: 'AWS Academy Graduate — Machine Learning Foundations',
+      title: 'AWS Academy Graduate - Machine Learning Foundations',
       issuer: 'Amazon Web Services (AWS)',
       year: '2025',
       type: 'Cloud & AI',
       badge: 'AWS ML'
     },
     {
-      title: 'AWS Academy Graduate — Cloud Foundations',
+      title: 'AWS Academy Graduate - Cloud Foundations',
       issuer: 'Amazon Web Services (AWS)',
       year: '2024',
       type: 'Cloud Architecture',
@@ -96,7 +96,6 @@ export default function ExperienceSection() {
       {/* Main Headline */}
       <div className="relative z-10 mb-14 sm:mb-18">
         <AnimatedHeading
-          kicker="CAREER TRAJECTORY · 2021 – PRESENT"
           title="Work Experience & Education"
           subtitle="Hands-on industry experience building multi-agent systems, data pipelines, and computer science engineering foundation."
           titleClassName="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] max-w-4xl"
@@ -169,7 +168,7 @@ export default function ExperienceSection() {
                   <div className="space-y-3.5 mb-8">
                     {item.bullets.map((bullet, bIdx) => (
                       <div key={bIdx} className="flex items-start gap-3">
-                        <span className="text-neutral-500 font-mono text-xs mt-1 shrink-0">—</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-white/30 mt-2 shrink-0" />
                         <p className="text-xs sm:text-[14px] font-sans text-neutral-300 font-normal leading-relaxed">
                           {bullet}
                         </p>

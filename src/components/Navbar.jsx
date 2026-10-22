@@ -86,10 +86,7 @@ export default function Navbar({ onOpenResume }) {
         {/* Right Info: Live Location Time & Resume Trigger */}
         <div className="hidden lg:flex items-center gap-6">
           <div className="flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-[11px] font-mono text-neutral-300">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500" />
             <span className="text-neutral-400">KANNUR (IN)</span>
             <span className="text-[#ff5500] font-semibold">{time || '00:00:00'} IST</span>
           </div>
@@ -130,42 +127,42 @@ export default function Navbar({ onOpenResume }) {
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              00. Home
+              Home
             </a>
             <a 
               href="#about" 
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              01. About
+              About
             </a>
             <a 
               href="#experience" 
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              02. Experience
+              Experience
             </a>
             <a 
               href="#projects" 
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              03. Projects
+              Projects
             </a>
             <a 
               href="#skills" 
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              04. Skills
+              Skills
             </a>
             <a 
               href="#contact" 
               onClick={() => setMobileMenuOpen(false)}
               className="py-2 hover:text-[#ff5500] transition-colors"
             >
-              05. Contact
+              Contact
             </a>
           </div>
 

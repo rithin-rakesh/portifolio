@@ -19,7 +19,6 @@ export default function AboutSection() {
         {/* Left Column: Bold Headline & Grounded Resume Narrative */}
         <div className="lg:col-span-7">
           <AnimatedHeading
-            kicker="ENGINEERING BACKGROUND"
             title="Building Reliable AI Agents & Neural Systems"
             subtitle="Designing production-grade agentic workflows, low-latency LLM inference pipelines, and deep learning systems."
             titleClassName="text-3xl sm:text-4xl md:text-5xl lg:text-[48px] mb-4"
@@ -41,7 +40,7 @@ export default function AboutSection() {
           {/* Minimal Key Metrics Bar */}
           <div className="grid grid-cols-3 gap-6 pt-6 border-t border-white/[0.08]">
             <div>
-              <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight block">2021–25</span>
+              <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight block">2021-2025</span>
               <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block mt-1">SRM B.Tech</span>
             </div>
             <div>
@@ -58,17 +57,13 @@ export default function AboutSection() {
         {/* Right Column: Clean Editorial Quote & Grounded Philosophy Card */}
         <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
           
-          {/* Minimalist Quote Block (Side-stripe purged per Hallmark anti-pattern) */}
+          {/* Minimalist Quote Block */}
           <div 
             data-card="true"
             className="p-8 sm:p-10 rounded-3xl bg-[#0f0e17] border border-white/10 relative overflow-hidden shadow-2xl group hover:border-[#bef264]/40 transition-colors duration-200"
           >
-            <span className="text-[11px] font-mono tracking-[0.25em] text-[#bef264] uppercase font-semibold block mb-4">
-              ENGINEERING ETHOS
-            </span>
-
             <blockquote className="font-sans text-base sm:text-lg text-white font-medium leading-relaxed mb-6 italic">
-              “True autonomy in AI isn't generating tokens—it is executing verifiable actions with deterministic state.”
+              “True autonomy in AI isn't generating tokens: it is executing verifiable actions with deterministic state.”
             </blockquote>
 
             <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-xs text-neutral-400">
@@ -87,7 +82,7 @@ export default function AboutSection() {
                 <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block mb-0.5">
                   Current Role
                 </span>
-                <h4 className="font-display text-sm uppercase text-white font-bold tracking-tight">AI Intern — Leniko Solutions</h4>
+                <h4 className="font-display text-sm uppercase text-white font-bold tracking-tight">AI Intern · Leniko Solutions</h4>
                 <p className="text-xs font-sans text-neutral-400 mt-0.5">LangGraph · NVIDIA NIM · FastAPI</p>
               </div>
             </div>

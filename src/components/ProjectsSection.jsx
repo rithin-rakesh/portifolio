@@ -27,7 +27,7 @@ export default function ProjectsSection() {
       id: 'job-agent',
       number: '01',
       title: 'AI JOB APPLICATION AGENT',
-      period: '2026 – PRESENT',
+      period: '2026 - PRESENT',
       subtitle: 'Autonomous multi-agent job discovery and browser automation system',
       category: 'Agentic AI',
       metricLabel: 'Profile Match Rate',
@@ -57,7 +57,7 @@ export default function ProjectsSection() {
       id: 'kannur-trails',
       number: '02',
       title: 'KANNUR TRAILS',
-      period: '2026 – PRESENT',
+      period: '2026 - PRESENT',
       subtitle: 'Full-stack tourism discovery & travel management platform on Cloudflare edge',
       category: 'Full-Stack Platform',
       metricLabel: 'Catalog Depth',
@@ -320,8 +320,8 @@ export default function ProjectsSection() {
 
         {/* Clean Aesthetic Slide Indicator Cue */}
         <div className="flex items-center gap-3 pointer-events-auto">
-          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md text-xs font-sans text-neutral-300">
-            <span className="hidden sm:inline">Slide left or right</span>
+          <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 backdrop-blur-md text-xs font-mono text-neutral-300">
+            <span className="hidden sm:inline">Track</span>
             <MoveRight className="w-3.5 h-3.5 text-[#ff5500]" />
           </div>
         </div>
@@ -621,8 +621,8 @@ export default function ProjectsSection() {
 
         {/* Current Project Index Telemetry & Slide Cue */}
         <div className="flex items-center gap-3">
-          <span className="hidden sm:inline text-xs font-sans text-neutral-400">
-            Click arrows, tabs, or swipe to slide
+          <span className="hidden sm:inline text-xs font-mono uppercase tracking-wider text-neutral-400">
+            Engineered Systems
           </span>
           <span className="font-mono text-xs text-neutral-400 px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-[#ff5500]" />

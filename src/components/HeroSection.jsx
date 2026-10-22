@@ -204,13 +204,7 @@ export default function HeroSection({ onOpenResume }) {
           {/* Right Live IST Telemetry Clock & CV Modal */}
           <div className="flex items-center gap-3 sm:gap-4 drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
             <div className="flex items-center gap-2 text-xs sm:text-[13px] font-mono tracking-[0.2em] text-white/95 font-medium">
-              <div className="flex items-center gap-[2px] h-3.5 px-1 py-0.5 rounded bg-emerald-400/15 border border-emerald-400/30">
-                <span className="w-[2px] h-2 bg-emerald-400 rounded-full animate-pulse" />
-                <span className="w-[2px] h-3 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '150ms' }} />
-                <span className="w-[2px] h-1.5 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '300ms' }} />
-                <span className="w-[2px] h-2.5 bg-emerald-400 rounded-full animate-pulse" style={{ animationDelay: '450ms' }} />
-              </div>
-
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span className="uppercase hidden sm:inline">KANNUR</span>
               <span className="text-white/70">(IN)</span>
               <span className="font-semibold text-white ml-0.5">{time ? time.slice(0, 5) : '18:50'}</span>
@@ -283,14 +277,14 @@ export default function HeroSection({ onOpenResume }) {
                       />
                       <img 
                         src="/profile.jpg" 
-                        alt="Rithin Rakesh — AI & Systems Engineer" 
+                        alt="Rithin Rakesh - AI & Systems Engineer" 
                         className="relative w-full h-full object-cover object-[55%_4%] filter contrast-[1.05] brightness-[1.04]"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
                       
                       <div className="absolute bottom-3.5 left-3.5 right-3.5 p-3 rounded-2xl bg-black/80 backdrop-blur-md border border-white/10 text-xs font-mono flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                          <span className="w-2 h-2 rounded-full bg-emerald-400" />
                           <span className="text-white font-semibold">Rithin Rakesh</span>
                         </div>
                         <span className="text-[#bef264] text-[10px] uppercase font-mono">Available for Work</span>
@@ -312,7 +306,7 @@ export default function HeroSection({ onOpenResume }) {
                         }}
                       >
                         <span className="w-2 h-2 rounded-full bg-[#bef264]" />
-                        <span>01 // AI & FULL-STACK ENGINEER</span>
+                        <span>AI & FULL-STACK ENGINEER</span>
                       </span>
                     </div>
 
@@ -341,7 +335,7 @@ export default function HeroSection({ onOpenResume }) {
                         transitionDelay: '250ms'
                       }}
                     >
-                      Hi, I'm Rithin Rakesh. I engineer autonomous AI workflows, smart machine learning models, and high-performance web applications that automate real work and scale businesses.
+                      I engineer autonomous AI agents, verified machine learning models, and high-performance web platforms that automate real work.
                     </p>
 
                     {/* 3 Simple Value Pillars */}
@@ -421,7 +415,7 @@ export default function HeroSection({ onOpenResume }) {
                     <div className="overflow-hidden">
                       <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#bef264] font-semibold inline-flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#bef264]" />
-                        <span>02 // AUTONOMOUS WORKFLOWS</span>
+                        <span>AUTONOMOUS WORKFLOWS</span>
                       </span>
                     </div>
 
@@ -446,7 +440,7 @@ export default function HeroSection({ onOpenResume }) {
                         transitionDelay: '250ms'
                       }}
                     >
-                      Instead of basic chatbots, I build autonomous agents that research information, browse websites, and complete multi-step tasks automatically—with human review safeguards at every critical step.
+                      Autonomous agents that research data, automate web browsers, and execute multi-step workflows with built-in human verification.
                     </p>
 
                     {/* 3 Cascade-in Value Bullets */}
@@ -567,7 +561,7 @@ export default function HeroSection({ onOpenResume }) {
                     <div className="overflow-hidden">
                       <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#bef264] font-semibold inline-flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#bef264]" />
-                        <span>03 // COMPUTER VISION & ML</span>
+                        <span>COMPUTER VISION & MACHINE LEARNING</span>
                       </span>
                     </div>
 
@@ -591,7 +585,7 @@ export default function HeroSection({ onOpenResume }) {
                         transitionDelay: '250ms'
                       }}
                     >
-                      I train deep learning and neural models that uncover patterns invisible to the human eye—from clinical medical diagnostics to financial fraud prevention.
+                      Deep learning and neural models engineered for high accuracy across clinical medical diagnostics and financial risk detection.
                     </p>
 
                     {/* 3 Clear Benefit Cards */}
@@ -723,7 +717,7 @@ export default function HeroSection({ onOpenResume }) {
                     <div className="overflow-hidden">
                       <span className="text-xs font-mono uppercase tracking-[0.25em] text-[#bef264] font-semibold inline-flex items-center gap-2">
                         <span className="w-2 h-2 rounded-full bg-[#bef264]" />
-                        <span>04 // PRODUCTION PLATFORMS</span>
+                        <span>PRODUCTION PLATFORMS</span>
                       </span>
                     </div>
 
@@ -747,7 +741,7 @@ export default function HeroSection({ onOpenResume }) {
                         transitionDelay: '250ms'
                       }}
                     >
-                      Great AI needs great software. I build complete web platforms—like Kannur Trails, connecting 85 destinations with automated travel planning and instant quotation generation.
+                      High-speed edge web applications engineered with Cloudflare Workers, relational SQL, and automated document pipelines.
                     </p>
 
                     {/* 3 Clear Benefit Cards */}
@@ -884,8 +878,8 @@ export default function HeroSection({ onOpenResume }) {
 
           {/* Progress Cue & Scroll Telemetry */}
           <div className="flex items-center gap-4 text-xs font-mono">
-            <span className="hidden sm:inline text-neutral-400 font-sans text-[11px]">
-              Scroll down or click tabs to explore
+            <span className="hidden sm:inline text-neutral-400 font-mono text-[11px] uppercase tracking-wider">
+              Interactive Story
             </span>
             <div className="px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#ff5500]" />
