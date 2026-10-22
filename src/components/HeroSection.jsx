@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
-import { ArrowDown, ArrowRight, Bot, Cpu, Database, ShieldCheck, Globe, FileText, ExternalLink, Activity, CheckCircle2, ChevronRight, Layers } from 'lucide-react';
+import { ArrowDown, ArrowRight, Bot, Cpu, Database, ShieldCheck, Globe, FileText, ExternalLink, Activity, CheckCircle2, ChevronRight, Sparkles, Zap, Layers } from 'lucide-react';
 import Hero3DCanvas from './Hero3DCanvas';
 
-/* Hallmark · component: HeroSection · 4-Slide 3D Scroll-Controlled Storytelling · slop: purged */
+/* Hallmark · component: HeroSection · Minimalist Client-Centric Storytelling · slop: purged */
 export default function HeroSection({ onOpenResume }) {
   const containerRef = useRef(null);
   const stickyFrameRef = useRef(null);
@@ -64,7 +64,7 @@ export default function HeroSection({ onOpenResume }) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Interactive mouse coordinate tracking for 3D camera parallax
+  // Interactive mouse coordinate tracking for gentle 3D parallax
   const handleMouseMove = (e) => {
     if (!stickyFrameRef.current) return;
     const rect = stickyFrameRef.current.getBoundingClientRect();
@@ -94,7 +94,6 @@ export default function HeroSection({ onOpenResume }) {
   // Keyboard navigation for jumping chapters (1, 2, 3, 4)
   useEffect(() => {
     const handleKeyDown = (e) => {
-      // Only respond if active element is not an input
       if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
       if (['1', '2', '3', '4'].includes(e.key)) {
         jumpToSlide(parseInt(e.key, 10) - 1);
@@ -110,72 +109,66 @@ export default function HeroSection({ onOpenResume }) {
 
   // Exit curtain compression when completing Chapter 4 (scrollProgress > 0.92)
   const exitT = Math.max(0, (scrollProgress - 0.92) / 0.08);
-  const heroScale = 1 - exitT * 0.06;
+  const heroScale = 1 - exitT * 0.05;
   const dimOpacity = exitT * 0.75;
 
-  // Chapter configurations
+  // Simple, client-focused chapter definitions
   const chapters = [
     {
-      id: 'foundation',
+      id: 'identity',
       number: '01',
-      kicker: 'ARCHITECTURAL FOUNDATION',
-      tabLabel: 'Identity & Ethos',
-      headline: 'FROM STATIC CODE TO AUTONOMOUS REASONING',
-      subtitle: 'Designing resilient multi-agent systems, low-latency inference pipelines, and deterministic state machines.',
-      quote: '“True autonomy in artificial intelligence isn’t generating tokens—it is executing verifiable actions with deterministic state.”',
-      telemetry: {
-        focus: 'LangGraph · NVIDIA NIM · FastAPI',
-        origin: 'Kannur, Kerala [11.8745° N, 75.3704° E]',
-        status: 'Active AI Intern @ Leniko Solutions'
-      }
+      kicker: 'AI & SYSTEMS ENGINEER',
+      tabLabel: 'Who I Am',
+      headlineWords: ['I', 'BUILD', 'INTELLIGENT', 'AI', 'AGENTS', '&', 'MODERN', 'APPS'],
+      tagline: 'Simple automation for complex business problems.',
+      description: "Hi, I'm Rithin Rakesh. I engineer autonomous AI workflows, smart machine learning models, and high-performance web platforms that automate real work and scale businesses.",
+      pillars: [
+        { label: 'Autonomous AI Agents', desc: 'Workflows that find data and execute multi-step tasks' },
+        { label: 'Machine Learning', desc: 'High-accuracy computer vision and predictive models' },
+        { label: 'Full-Stack Platforms', desc: 'Fast, secure web apps deployed on modern cloud edge' }
+      ]
     },
     {
-      id: 'agentic',
+      id: 'agents',
       number: '02',
-      kicker: 'AGENTIC ARCHITECTURES',
-      tabLabel: 'Multi-Agent Core',
-      headline: 'DETERMINISTIC STATE IN NON-DETERMINISTIC WORLDS',
-      subtitle: 'Orchestrating autonomous agents that discover listings, score candidate alignment, and handle multi-step browser execution with Human-in-the-Loop safety.',
-      bullets: [
-        'LangGraph state graphs with persistent checkpointing and automatic recovery',
-        'Playwright & Chrome DevTools Protocol automation with CAPTCHA / MFA safety gates',
-        'NVIDIA NIM inference for sub-millisecond candidate profiling'
-      ],
-      metricLabel: 'Candidate Match Rate',
-      metricValue: '96.2%',
-      metricSub: 'Verified Zero Hallucination Gate'
+      kicker: 'AUTONOMOUS WORKFLOWS',
+      tabLabel: 'AI Automation',
+      headlineWords: ['AI', 'AGENTS', 'THAT', 'WORK', 'FOR', 'YOUR', 'BUSINESS'],
+      tagline: 'Execution over prompts: software that takes real action.',
+      description: 'Instead of basic chatbots, I build autonomous agents that research information, browse websites, and complete multi-step tasks automatically—with human review safeguards at every critical step.',
+      benefits: [
+        { title: 'Saves Hours of Manual Work', desc: 'Automatically discovers listings, scrapes data, and fills browser forms.' },
+        { title: 'Human Safety Controls', desc: 'Built-in approval gates for CAPTCHAs, payments, and sensitive decisions.' },
+        { title: '96.2% Verified Accuracy', desc: 'Reliable candidate and profile matching with zero unsupported hallucinations.' }
+      ]
     },
     {
       id: 'neural',
       number: '03',
-      kicker: 'DEEP LEARNING & VISION',
-      tabLabel: 'Neural Systems',
-      headline: 'SUB-MILLISECOND INFERENCE & CLINICAL DIAGNOSTICS',
-      subtitle: 'Fine-tuning deep convolutional backbones on multimodal clinical MRI scans across axial, sagittal, and coronal planes with ROC validation.',
-      bullets: [
-        'Transfer learning architectures evaluated via confusion matrices',
-        'Multimodal MRI feature extraction with augmented normalization pipelines',
-        'Financial anomaly ensemble models achieving 91.8% fraud recall'
-      ],
-      metricLabel: 'Diagnostic Accuracy',
-      metricValue: '98.4%',
-      metricSub: 'Supervised Medical Imaging Models'
+      kicker: 'COMPUTER VISION & ML',
+      tabLabel: 'Smart Models',
+      headlineWords: ['PRECISE', 'AI', 'MODELS', 'WITH', 'VERIFIED', 'ACCURACY'],
+      tagline: 'Uncovering patterns invisible to the naked eye.',
+      description: 'I train deep learning and neural models that analyze high-resolution imagery and complex financial data to deliver reliable diagnostic predictions and fraud protection.',
+      benefits: [
+        { title: '98.4% Diagnostic Accuracy', desc: 'Fine-tuned convolutional networks validated across clinical MRI scans.' },
+        { title: '91.8% Fraud Detection', desc: 'Machine learning ensemble that flags anomalous and risky loan applications.' },
+        { title: 'Sub-15ms AI Speed', desc: 'Optimized with NVIDIA NIM for instant predictions in live web applications.' }
+      ]
     },
     {
       id: 'production',
       number: '04',
-      kicker: 'PRODUCTION DEPLOYMENTS',
-      tabLabel: 'Global Edge Scale',
-      headline: 'MODELS SHIFT, BUT INFRASTRUCTURE ENDURES',
-      subtitle: 'Deploying full-stack production platforms on Cloudflare Workers edge runtime—combining D1 SQL, R2 object storage, and automated document generation.',
-      bullets: [
-        'Kannur Trails: 85-destination tourism & quotation engine deployed on Cloudflare edge',
-        'Automated versioned quotations and branded PDF generation services',
-        'Email-verification security safeguards with instant revocation controls'
-      ],
-      metricLabel: 'Catalog Depth',
-      metricValue: '85 Stays & Destinations',
-      metricSub: 'Cloudflare Workers · D1 SQL · R2'
+      kicker: 'PRODUCTION PLATFORMS',
+      tabLabel: 'Full-Stack Apps',
+      headlineWords: ['FAST,', 'SCALABLE', 'FULL-STACK', 'WEB', 'PLATFORMS'],
+      tagline: 'From intelligent models to production software.',
+      description: 'Great AI needs great software. I build complete web platforms—like Kannur Trails, connecting 85 destinations with automated travel planning and instant quotation generation.',
+      benefits: [
+        { title: 'Global Edge Speed', desc: 'Deployed on Cloudflare Workers for instant loading from anywhere in the world.' },
+        { title: 'Complete End-to-End', desc: 'Modern user interface, relational SQL database, and cloud media storage.' },
+        { title: 'Automated Quotations', desc: 'Instant branded PDF documents and private customer trip portals.' }
+      ]
     }
   ];
 
@@ -205,30 +198,30 @@ export default function HeroSection({ onOpenResume }) {
         />
 
         {/* ======================================================== */}
-        {/* 3D CANVAS: Spatial Particles, Isometric Grid & Caustic   */}
+        {/* 3D CANVAS: Slow, Calm Spatial Particles & Caustic Field  */}
         {/* ======================================================== */}
         <Hero3DCanvas scrollProgress={scrollProgress} mousePos={mousePos} />
 
         {/* ======================================================== */}
         {/* TOP PERSISTENT NAVIGATION BAR                            */}
         {/* ======================================================== */}
-        <header className="relative z-30 w-full pt-5 sm:pt-7 md:pt-8 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 flex items-center justify-between pointer-events-auto">
+        <header className="relative z-30 w-full pt-5 sm:pt-6 md:pt-7 px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 flex items-center justify-between pointer-events-auto">
           
           {/* Brand Identity / Home Jump */}
           <button
             onClick={() => jumpToSlide(0)}
             className="group flex items-center gap-2.5 text-left focus:outline-none"
           >
-            <span className="font-hero text-2xl sm:text-3xl md:text-4xl text-white tracking-wide uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] group-hover:text-[#bef264] transition-colors duration-200">
+            <span className="font-hero text-2xl sm:text-3xl text-white tracking-wide uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)] group-hover:text-[#bef264] transition-colors duration-200">
               RITHIN
             </span>
             <span className="hidden sm:inline-block font-mono text-[10px] tracking-widest px-2 py-0.5 rounded bg-white/10 text-neutral-300 uppercase">
-              AI / ML
+              AI Engineer
             </span>
           </button>
 
           {/* Center Navigation Links */}
-          <nav className="hidden md:flex items-center gap-8 lg:gap-11 text-xs lg:text-[13px] font-mono uppercase tracking-[0.25em] text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
+          <nav className="hidden md:flex items-center gap-7 lg:gap-10 text-xs font-mono uppercase tracking-[0.22em] text-white/90 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
             <button
               onClick={() => jumpToSlide(0)}
               className="relative text-white transition-colors duration-200 py-1"
@@ -280,25 +273,25 @@ export default function HeroSection({ onOpenResume }) {
 
               <span className="uppercase hidden sm:inline">KANNUR</span>
               <span className="text-white/70">(IN)</span>
-              <span className="font-semibold text-white ml-0.5">{time ? time.slice(0, 5) : '18:30'}</span>
+              <span className="font-semibold text-white ml-0.5">{time ? time.slice(0, 5) : '18:45'}</span>
             </div>
 
             <button
               onClick={onOpenResume}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-[#ff5500] text-white border border-white/20 text-[11px] font-mono uppercase tracking-wider transition-colors duration-200 backdrop-blur-sm shadow-md"
+              className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/10 hover:bg-[#ff5500] text-white border border-white/20 text-[11px] font-mono uppercase tracking-wider transition-colors duration-200 backdrop-blur-sm shadow-md"
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>CV</span>
+              <span>Resume</span>
             </button>
           </div>
 
         </header>
 
         {/* ======================================================== */}
-        {/* 3D STORYTELLING STAGE: 4 CONTINUOUS 3D SLIDES           */}
+        {/* 3D STORYTELLING STAGE: 4 MINIMALIST CLIENT SLIDES        */}
         {/* ======================================================== */}
         <div 
-          className="relative z-20 flex-1 w-full max-w-[1520px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-2 sm:py-4 flex items-center justify-center overflow-hidden"
+          className="relative z-20 flex-1 w-full max-w-[1480px] mx-auto px-6 sm:px-10 md:px-14 lg:px-20 py-2 sm:py-3 flex items-center justify-center overflow-hidden"
           style={{ perspective: '1200px' }}
         >
           {chapters.map((chap, idx) => {
@@ -311,17 +304,17 @@ export default function HeroSection({ onOpenResume }) {
 
             // Mathematical interpolation curves for enter, present, exit
             const opacity = Math.max(0, Math.min(1, 1 - absDist * 1.3));
-            const translateZ = dist < 0 ? dist * 220 : dist * 120;
-            const translateY = dist < 0 ? -dist * 35 : -dist * 40;
-            const rotateX = dist < 0 ? -dist * 14 : -dist * 10;
-            const rotateY = mousePos.x * 5;
-            const blurAmount = Math.max(0, Math.min(8, (absDist - 0.25) * 12));
+            const translateZ = dist < 0 ? dist * 180 : dist * 100;
+            const translateY = dist < 0 ? -dist * 30 : -dist * 30;
+            const rotateX = dist < 0 ? -dist * 10 : -dist * 8;
+            const rotateY = mousePos.x * 4;
+            const blurAmount = Math.max(0, Math.min(6, (absDist - 0.3) * 10));
             const isCurrent = absDist < 0.5;
 
             return (
               <div
                 key={chap.id}
-                className="absolute inset-0 px-4 sm:px-8 md:px-12 flex items-center justify-center pointer-events-none"
+                className="absolute inset-0 px-4 sm:px-8 flex items-center justify-center pointer-events-none"
                 style={{
                   opacity,
                   filter: `blur(${blurAmount}px)`,
@@ -332,155 +325,232 @@ export default function HeroSection({ onOpenResume }) {
                 }}
               >
                 
-                {/* Slide 01: Inception & Core Identity */}
+                {/* ---------------------------------------------------- */}
+                {/* SLIDE 01: WHO I AM (Client-Focused Identity)         */}
+                {/* ---------------------------------------------------- */}
                 {idx === 0 && (
-                  <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
                     
-                    {/* Left: Silhouette Portrait in 3D Depth Vessel */}
+                    {/* Left: Minimal Portrait Silhouette with subtle glow */}
                     <div className="lg:col-span-5 flex justify-center order-2 lg:order-1">
-                      <div className="relative w-56 sm:w-64 md:w-72 lg:w-80 aspect-[4/5] rounded-3xl overflow-hidden border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.85)] group bg-black/60">
-                        {/* Blur halo */}
+                      <div className="relative w-52 sm:w-60 md:w-68 lg:w-76 aspect-[4/5] rounded-3xl overflow-hidden border border-white/20 shadow-[0_25px_80px_rgba(0,0,0,0.85)] group bg-black/60">
                         <img 
                           src="/profile.jpg" 
                           alt="" 
                           aria-hidden="true" 
-                          className="absolute inset-0 w-full h-full object-cover filter blur-xl opacity-60 scale-110"
+                          className="absolute inset-0 w-full h-full object-cover filter blur-xl opacity-50 scale-105"
                         />
-                        {/* Sharp portrait */}
                         <img 
                           src="/profile.jpg" 
-                          alt="Rithin Rakesh" 
+                          alt="Rithin Rakesh — AI & Systems Engineer" 
                           className="relative w-full h-full object-cover object-[55%_4%] filter contrast-[1.05] brightness-[1.04]"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/30 pointer-events-none" />
                         
-                        {/* Status label inside image */}
-                        <div className="absolute bottom-3 left-3 right-3 p-3 rounded-2xl bg-black/75 backdrop-blur-md border border-white/10 text-xs font-mono flex items-center justify-between">
+                        {/* Clean Status Pill inside portrait */}
+                        <div className="absolute bottom-3.5 left-3.5 right-3.5 p-3 rounded-2xl bg-black/80 backdrop-blur-md border border-white/10 text-xs font-mono flex items-center justify-between">
                           <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                            <span className="text-white text-[11px] font-semibold">Rithin Rakesh</span>
+                            <span className="text-white font-semibold">Rithin Rakesh</span>
                           </div>
-                          <span className="text-[#bef264] text-[10px] uppercase font-mono">Leniko Solutions</span>
+                          <span className="text-[#bef264] text-[10px] uppercase font-mono">Available for Work</span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Right: Architectural Narrative & Bold Display Title */}
+                    {/* Right: Clean, Clear Value Statement & Word-by-Word Headline */}
                     <div className="lg:col-span-7 order-1 lg:order-2 space-y-5 text-left">
-                      <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#bef264] uppercase font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-[#bef264]" />
-                        <span>01 // {chap.kicker}</span>
+                      
+                      {/* Eyebrow with tracking expansion */}
+                      <div className="overflow-hidden">
+                        <span 
+                          className="text-xs font-mono uppercase tracking-[0.25em] text-[#bef264] font-semibold inline-flex items-center gap-2 transition-all duration-700 ease-out"
+                          style={{
+                            transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 100%, 0)',
+                            opacity: isCurrent ? 1 : 0
+                          }}
+                        >
+                          <span className="w-2 h-2 rounded-full bg-[#bef264]" />
+                          <span>01 // {chap.kicker}</span>
+                        </span>
                       </div>
 
-                      <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[54px] text-white tracking-[-0.035em] leading-[1.08] uppercase">
-                        FROM STATIC CODE TO <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-neutral-400">AUTONOMOUS REASONING</span>
+                      {/* Staggered Word-by-Word Animated Headline */}
+                      <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[50px] text-white tracking-[-0.035em] leading-[1.08] uppercase flex flex-wrap gap-x-[0.28em] gap-y-[0.05em]">
+                        {chap.headlineWords.map((word, wIdx) => (
+                          <span key={wIdx} className="inline-block overflow-hidden py-0.5">
+                            <span
+                              className="inline-block transition-transform duration-700 ease-out"
+                              style={{
+                                transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 115%, 0)',
+                                opacity: isCurrent ? 1 : 0,
+                                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                                transitionDelay: `${80 + wIdx * 35}ms`
+                              }}
+                            >
+                              {word}
+                            </span>
+                          </span>
+                        ))}
                       </h1>
 
-                      <blockquote className="font-sans text-sm sm:text-base text-neutral-300 font-medium leading-relaxed italic border-l-2 border-[#bef264] pl-4">
-                        {chap.quote}
-                      </blockquote>
+                      {/* Simple Plain-English Description */}
+                      <p 
+                        className="font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed max-w-xl transition-all duration-700 ease-out"
+                        style={{
+                          transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 15px, 0)',
+                          opacity: isCurrent ? 1 : 0,
+                          transitionDelay: '350ms'
+                        }}
+                      >
+                        {chap.description}
+                      </p>
 
-                      {/* Stack Badges */}
-                      <div className="flex flex-wrap gap-2 pt-1">
-                        {['LangGraph', 'NVIDIA NIM', 'FastAPI', 'PyTorch', 'Cloudflare Workers'].map((tag, tIdx) => (
-                          <span key={tIdx} className="dashed-chip text-[11px]">
-                            [ {tag} ]
-                          </span>
+                      {/* 3 Simple Value Pillars */}
+                      <div 
+                        className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1 transition-all duration-700 ease-out"
+                        style={{
+                          transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 20px, 0)',
+                          opacity: isCurrent ? 1 : 0,
+                          transitionDelay: '450ms'
+                        }}
+                      >
+                        {chap.pillars.map((pil, pIdx) => (
+                          <div key={pIdx} className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-white/20 transition-colors">
+                            <h4 className="font-display font-bold text-xs text-white uppercase mb-0.5">{pil.label}</h4>
+                            <p className="text-[11px] font-sans text-neutral-400 leading-snug">{pil.desc}</p>
+                          </div>
                         ))}
                       </div>
 
-                      {/* Direct Micro-Action & Location Strip */}
-                      <div className="pt-2 flex flex-wrap items-center gap-4 text-xs font-mono text-neutral-400">
+                      {/* Simple Contact Link & Location */}
+                      <div className="pt-1 flex flex-wrap items-center gap-4 text-xs font-mono text-neutral-400">
                         <a 
                           href="mailto:rithinrakesh2002@gmail.com" 
                           className="text-white hover:text-[#bef264] underline underline-offset-4 font-semibold transition-colors"
                         >
-                          RITHINRAKESH2002@GMAIL.COM
+                          rithinrakesh2002@gmail.com
                         </a>
                         <span>·</span>
-                        <span className="text-neutral-400">Kannur, Kerala (India)</span>
+                        <span>Kannur, Kerala (India)</span>
                       </div>
+
                     </div>
 
                   </div>
                 )}
 
-                {/* Slide 02: Agentic State Machines */}
+                {/* ---------------------------------------------------- */}
+                {/* SLIDE 02: AI AGENTS IN ACTION (Simple Business Value) */}
+                {/* ---------------------------------------------------- */}
                 {idx === 1 && (
-                  <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
                     
-                    {/* Left 6 Cols: Story Narrative & Metrics */}
+                    {/* Left 6 Cols: Value Messaging & Headline */}
                     <div className="lg:col-span-6 space-y-5 text-left">
-                      <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#bef264] uppercase font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-[#bef264]" />
-                        <span>02 // {chap.kicker}</span>
+                      
+                      <div className="overflow-hidden">
+                        <span 
+                          className="text-xs font-mono uppercase tracking-[0.25em] text-[#bef264] font-semibold inline-flex items-center gap-2 transition-all duration-700 ease-out"
+                          style={{
+                            transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 100%, 0)',
+                            opacity: isCurrent ? 1 : 0
+                          }}
+                        >
+                          <span className="w-2 h-2 rounded-full bg-[#bef264]" />
+                          <span>02 // {chap.kicker}</span>
+                        </span>
                       </div>
 
-                      <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-[-0.03em] leading-[1.08] uppercase">
-                        {chap.headline}
+                      {/* Word-by-Word Animated Headline */}
+                      <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-[-0.03em] leading-[1.08] uppercase flex flex-wrap gap-x-[0.28em] gap-y-[0.05em]">
+                        {chap.headlineWords.map((word, wIdx) => (
+                          <span key={wIdx} className="inline-block overflow-hidden py-0.5">
+                            <span
+                              className="inline-block transition-transform duration-700 ease-out"
+                              style={{
+                                transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 115%, 0)',
+                                opacity: isCurrent ? 1 : 0,
+                                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                                transitionDelay: `${80 + wIdx * 35}ms`
+                              }}
+                            >
+                              {word}
+                            </span>
+                          </span>
+                        ))}
                       </h2>
 
-                      <p className="font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed">
-                        {chap.subtitle}
+                      <p 
+                        className="font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed transition-all duration-700 ease-out"
+                        style={{
+                          transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 15px, 0)',
+                          opacity: isCurrent ? 1 : 0,
+                          transitionDelay: '350ms'
+                        }}
+                      >
+                        {chap.description}
                       </p>
 
-                      <div className="space-y-2.5 pt-1">
-                        {chap.bullets.map((b, bIdx) => (
-                          <div key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] font-sans text-neutral-300">
-                            <span className="text-[#bef264] font-mono mt-0.5 select-none">›</span>
-                            <span>{b}</span>
+                      {/* 3 Client Benefit Cards */}
+                      <div 
+                        className="space-y-2.5 pt-1 transition-all duration-700 ease-out"
+                        style={{
+                          transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 20px, 0)',
+                          opacity: isCurrent ? 1 : 0,
+                          transitionDelay: '450ms'
+                        }}
+                      >
+                        {chap.benefits.map((b, bIdx) => (
+                          <div key={bIdx} className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-start gap-3">
+                            <CheckCircle2 className="w-4 h-4 text-[#bef264] mt-0.5 shrink-0" />
+                            <div>
+                              <h4 className="font-display font-bold text-xs text-white uppercase">{b.title}</h4>
+                              <p className="text-xs font-sans text-neutral-400 mt-0.5 leading-snug">{b.desc}</p>
+                            </div>
                           </div>
                         ))}
                       </div>
 
-                      {/* Verified Telemetry Box */}
-                      <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
-                        <div>
-                          <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block">Verified Milestone</span>
-                          <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">{chap.metricValue}</span>
-                          <span className="font-sans text-xs text-neutral-400 block">{chap.metricLabel}</span>
-                        </div>
-                        <div className="text-right font-mono text-xs">
-                          <span className="px-2.5 py-1 rounded-full bg-emerald-400/10 text-emerald-400 font-semibold border border-emerald-400/20">
-                            HITL VERIFIED
-                          </span>
-                        </div>
-                      </div>
                     </div>
 
-                    {/* Right 6 Cols: 3D Topological Multi-Agent Workflow Blueprint */}
+                    {/* Right 6 Cols: Clean Visual Workflow Blueprint */}
                     <div className="lg:col-span-6 flex justify-center">
-                      <div className="w-full p-6 sm:p-7 rounded-3xl bg-[#0b0a13] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.9)] space-y-4">
+                      <div className="w-full p-6 sm:p-7 rounded-3xl bg-[#0b0a13] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.85)] space-y-4">
                         <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono">
                           <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                            <span className="text-white font-semibold uppercase tracking-wider">LANGGRAPH WORKFLOW STATE</span>
+                            <span className="text-white font-semibold uppercase tracking-wider">HOW THE AGENT WORKS</span>
                           </div>
-                          <span className="text-[#bef264] text-[10px] font-mono uppercase">SPEC 01</span>
+                          <span className="text-[#bef264] text-[10px] uppercase font-mono">AUTOMATED PIPELINE</span>
                         </div>
 
-                        {/* Pipeline Nodes */}
-                        <div className="space-y-3">
+                        {/* 4 Simple Visual Steps */}
+                        <div className="space-y-2.5">
                           {[
-                            { name: 'JobSpy & Apify Discovery', desc: 'Aggregates listings & sanitizes schema', status: 'ACTIVE', tech: 'JobSpy API' },
-                            { name: 'NVIDIA NIM Profile Scorer', desc: 'Evaluates candidate skills & location alignment', status: 'SYNCED', tech: 'NIM Inference' },
-                            { name: 'Playwright CDP Automation', desc: 'Navigates multi-step form submissions', status: 'RUNNING', tech: 'CDP Engine' },
-                            { name: 'Human-in-the-Loop Safety Gate', desc: 'Guards CAPTCHAs, MFA, & ungrounded prompts', status: 'LOCKED', tech: 'Safety Gate' }
+                            { num: '01', title: 'Data Discovery', desc: 'Agent searches listings and gathers job specifications' },
+                            { num: '02', title: 'Intelligent Scoring', desc: 'AI scores candidate experience against qualifications' },
+                            { num: '03', title: 'Browser Execution', desc: 'Automates multi-step form applications on Glassdoor / Indeed' },
+                            { num: '04', title: 'Human Safety Check', desc: 'Pauses for user approval on CAPTCHAs and sensitive questions' }
                           ].map((step, sIdx) => (
-                            <div key={sIdx} className="p-3.5 rounded-xl bg-white/[0.025] border border-white/[0.08] flex items-center justify-between hover:border-white/20 transition-colors">
-                              <div>
-                                <h4 className="font-display font-bold text-xs uppercase text-white tracking-tight">{step.name}</h4>
-                                <p className="text-[11px] font-sans text-neutral-400">{step.desc}</p>
+                            <div key={sIdx} className="p-3 rounded-xl bg-white/[0.025] border border-white/[0.06] flex items-center justify-between">
+                              <div className="flex items-center gap-3">
+                                <span className="font-mono text-xs font-bold text-[#bef264]">{step.num}</span>
+                                <div>
+                                  <h4 className="font-display font-bold text-xs uppercase text-white">{step.title}</h4>
+                                  <p className="text-[11px] font-sans text-neutral-400">{step.desc}</p>
+                                </div>
                               </div>
-                              <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/10 text-emerald-400 font-semibold uppercase">
-                                {step.status}
+                              <span className="text-[9px] font-mono px-2 py-0.5 rounded bg-emerald-400/10 text-emerald-400 font-semibold uppercase">
+                                VERIFIED
                               </span>
                             </div>
                           ))}
                         </div>
 
-                        <div className="pt-2 text-right">
-                          <span className="text-[11px] font-mono text-neutral-400">Orchestration: Python 3.11 / FastAPI / Supabase</span>
+                        <div className="pt-2 flex items-center justify-between text-xs text-neutral-400 border-t border-white/[0.06]">
+                          <span>Result: 96.2% Profile Match</span>
+                          <span className="text-[#ff5500] font-mono font-semibold">Zero Hallucinations</span>
                         </div>
                       </div>
                     </div>
@@ -488,93 +558,124 @@ export default function HeroSection({ onOpenResume }) {
                   </div>
                 )}
 
-                {/* Slide 03: Neural Systems & Clinical Diagnostics */}
+                {/* ---------------------------------------------------- */}
+                {/* SLIDE 03: COMPUTER VISION & ACCURACY                */}
+                {/* ---------------------------------------------------- */}
                 {idx === 2 && (
-                  <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
                     
-                    {/* Left 6 Cols: Story Narrative & Metrics */}
+                    {/* Left 6 Cols: Value Messaging & Headline */}
                     <div className="lg:col-span-6 space-y-5 text-left">
-                      <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#bef264] uppercase font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-[#bef264]" />
-                        <span>03 // {chap.kicker}</span>
+                      
+                      <div className="overflow-hidden">
+                        <span 
+                          className="text-xs font-mono uppercase tracking-[0.25em] text-[#bef264] font-semibold inline-flex items-center gap-2 transition-all duration-700 ease-out"
+                          style={{
+                            transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 100%, 0)',
+                            opacity: isCurrent ? 1 : 0
+                          }}
+                        >
+                          <span className="w-2 h-2 rounded-full bg-[#bef264]" />
+                          <span>03 // {chap.kicker}</span>
+                        </span>
                       </div>
 
-                      <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-[-0.03em] leading-[1.08] uppercase">
-                        {chap.headline}
+                      {/* Word-by-Word Animated Headline */}
+                      <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-[-0.03em] leading-[1.08] uppercase flex flex-wrap gap-x-[0.28em] gap-y-[0.05em]">
+                        {chap.headlineWords.map((word, wIdx) => (
+                          <span key={wIdx} className="inline-block overflow-hidden py-0.5">
+                            <span
+                              className="inline-block transition-transform duration-700 ease-out"
+                              style={{
+                                transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 115%, 0)',
+                                opacity: isCurrent ? 1 : 0,
+                                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                                transitionDelay: `${80 + wIdx * 35}ms`
+                              }}
+                            >
+                              {word}
+                            </span>
+                          </span>
+                        ))}
                       </h2>
 
-                      <p className="font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed">
-                        {chap.subtitle}
+                      <p 
+                        className="font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed transition-all duration-700 ease-out"
+                        style={{
+                          transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 15px, 0)',
+                          opacity: isCurrent ? 1 : 0,
+                          transitionDelay: '350ms'
+                        }}
+                      >
+                        {chap.description}
                       </p>
 
-                      <div className="space-y-2.5 pt-1">
-                        {chap.bullets.map((b, bIdx) => (
-                          <div key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] font-sans text-neutral-300">
-                            <span className="text-[#bef264] font-mono mt-0.5 select-none">›</span>
-                            <span>{b}</span>
+                      {/* 3 Client Benefit Cards */}
+                      <div 
+                        className="space-y-2.5 pt-1 transition-all duration-700 ease-out"
+                        style={{
+                          transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 20px, 0)',
+                          opacity: isCurrent ? 1 : 0,
+                          transitionDelay: '450ms'
+                        }}
+                      >
+                        {chap.benefits.map((b, bIdx) => (
+                          <div key={bIdx} className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-start gap-3">
+                            <CheckCircle2 className="w-4 h-4 text-[#bef264] mt-0.5 shrink-0" />
+                            <div>
+                              <h4 className="font-display font-bold text-xs text-white uppercase">{b.title}</h4>
+                              <p className="text-xs font-sans text-neutral-400 mt-0.5 leading-snug">{b.desc}</p>
+                            </div>
                           </div>
                         ))}
                       </div>
 
-                      {/* Verified Telemetry Box */}
-                      <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
-                        <div>
-                          <span className="font-mono text-[10px] uppercase tracking-widest text-[#bef264] block">Validation Accuracy</span>
-                          <span className="font-display font-bold text-2xl sm:text-3xl text-white tracking-tight">{chap.metricValue}</span>
-                          <span className="font-sans text-xs text-neutral-400 block">{chap.metricSub}</span>
-                        </div>
-                        <div className="text-right font-mono text-xs">
-                          <span className="px-2.5 py-1 rounded-full bg-emerald-400/10 text-emerald-400 font-semibold border border-emerald-400/20">
-                            CONVERGED
-                          </span>
-                        </div>
-                      </div>
                     </div>
 
-                    {/* Right 6 Cols: 3D Volumetric Tensor Lattice Vessel */}
+                    {/* Right 6 Cols: Clean Minimal Diagnostic Card */}
                     <div className="lg:col-span-6 flex justify-center">
-                      <div className="w-full p-6 sm:p-7 rounded-3xl bg-[#0b0a13] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.9)] space-y-4">
+                      <div className="w-full p-6 sm:p-7 rounded-3xl bg-[#0b0a13] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.85)] space-y-4">
                         <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono">
                           <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-[#bef264] animate-pulse" />
-                            <span className="text-white font-semibold uppercase tracking-wider">NEURAL DIAGNOSTIC PIPELINE</span>
+                            <span className="text-white font-semibold uppercase tracking-wider">VERIFIED CLINICAL ACCURACY</span>
                           </div>
-                          <span className="text-[#bef264] text-[10px] font-mono uppercase">SPEC 02 & 03</span>
+                          <span className="text-[#bef264] text-[10px] uppercase font-mono">DIAGNOSTIC AI</span>
                         </div>
 
-                        {/* Multi-planar Orthogonal Slices Visual */}
+                        {/* Multi-planar Slices Display */}
                         <div className="grid grid-cols-3 gap-3">
                           {[
-                            { plane: 'AXIAL PLANE', res: '256 × 256', acc: '98.6%' },
-                            { plane: 'CORONAL PLANE', res: '256 × 256', acc: '98.2%' },
-                            { plane: 'SAGITTAL PLANE', res: '256 × 256', acc: '98.4%' }
-                          ].map((sl, slIdx) => (
-                            <div key={slIdx} className="p-3 rounded-2xl bg-white/[0.025] border border-white/[0.08] text-center">
-                              <span className="font-mono text-[9px] text-neutral-400 block mb-1">{sl.plane}</span>
-                              <span className="font-display font-bold text-base text-white block">{sl.acc}</span>
-                              <span className="font-mono text-[10px] text-emerald-400 mt-1 block">Valid</span>
+                            { name: 'Axial View', acc: '98.6%', label: 'Cross-Section' },
+                            { name: 'Coronal View', acc: '98.2%', label: 'Frontal Slices' },
+                            { name: 'Sagittal View', acc: '98.4%', label: 'Side Profiles' }
+                          ].map((v, vIdx) => (
+                            <div key={vIdx} className="p-3 rounded-2xl bg-white/[0.025] border border-white/[0.08] text-center">
+                              <span className="text-[10px] font-mono text-neutral-400 uppercase block mb-1">{v.name}</span>
+                              <span className="text-lg font-display font-bold text-white block">{v.acc}</span>
+                              <span className="text-[10px] font-sans text-neutral-400 mt-1 block">{v.label}</span>
                             </div>
                           ))}
                         </div>
 
-                        {/* Deep Learning Engine Specs */}
+                        {/* Model Specs in Simple English */}
                         <div className="p-4 rounded-2xl bg-black/60 border border-white/[0.08] space-y-2 text-xs">
                           <div className="flex justify-between py-1 border-b border-white/10 font-sans">
-                            <span className="text-neutral-400">Backbone:</span>
-                            <span className="text-white font-mono">Fine-Tuned CNNs & Transfer Learning</span>
+                            <span className="text-neutral-400">Diagnosis Type:</span>
+                            <span className="text-white font-medium">Brain Tumor Medical Classification</span>
                           </div>
                           <div className="flex justify-between py-1 border-b border-white/10 font-sans">
-                            <span className="text-neutral-400">Evaluation:</span>
-                            <span className="text-white font-mono">Confusion Matrix & ROC AUC</span>
+                            <span className="text-neutral-400">Fraud Prevention:</span>
+                            <span className="text-[#ff5500] font-medium font-mono">91.8% Loan Risk Detection</span>
                           </div>
                           <div className="flex justify-between py-1 font-sans">
-                            <span className="text-neutral-400">Risk Model:</span>
-                            <span className="text-[#ff5500] font-mono font-semibold">91.8% Loan Fraud Recall</span>
+                            <span className="text-neutral-400">Response Speed:</span>
+                            <span className="text-emerald-400 font-mono font-medium">&lt;15ms Fast Inference</span>
                           </div>
                         </div>
 
                         <div className="pt-1 text-right">
-                          <span className="text-[11px] font-mono text-neutral-400">Framework: PyTorch / Scikit-learn / TensorFlow</span>
+                          <span className="text-[11px] font-mono text-neutral-400">Validated via PyTorch & Scikit-learn</span>
                         </div>
                       </div>
                     </div>
@@ -582,36 +683,80 @@ export default function HeroSection({ onOpenResume }) {
                   </div>
                 )}
 
-                {/* Slide 04: Production Systems & Global Edge Scale */}
+                {/* ---------------------------------------------------- */}
+                {/* SLIDE 04: FULL-STACK PRODUCTION PLATFORMS            */}
+                {/* ---------------------------------------------------- */}
                 {idx === 3 && (
-                  <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                  <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
                     
-                    {/* Left 6 Cols: Story Narrative & Actions */}
+                    {/* Left 6 Cols: Value Messaging & Action Buttons */}
                     <div className="lg:col-span-6 space-y-5 text-left">
-                      <div className="flex items-center gap-2 text-xs font-mono tracking-[0.25em] text-[#bef264] uppercase font-semibold">
-                        <span className="w-2 h-2 rounded-full bg-[#bef264]" />
-                        <span>04 // {chap.kicker}</span>
+                      
+                      <div className="overflow-hidden">
+                        <span 
+                          className="text-xs font-mono uppercase tracking-[0.25em] text-[#bef264] font-semibold inline-flex items-center gap-2 transition-all duration-700 ease-out"
+                          style={{
+                            transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 100%, 0)',
+                            opacity: isCurrent ? 1 : 0
+                          }}
+                        >
+                          <span className="w-2 h-2 rounded-full bg-[#bef264]" />
+                          <span>04 // {chap.kicker}</span>
+                        </span>
                       </div>
 
-                      <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-[-0.03em] leading-[1.08] uppercase">
-                        {chap.headline}
+                      {/* Word-by-Word Animated Headline */}
+                      <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-[-0.03em] leading-[1.08] uppercase flex flex-wrap gap-x-[0.28em] gap-y-[0.05em]">
+                        {chap.headlineWords.map((word, wIdx) => (
+                          <span key={wIdx} className="inline-block overflow-hidden py-0.5">
+                            <span
+                              className="inline-block transition-transform duration-700 ease-out"
+                              style={{
+                                transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 115%, 0)',
+                                opacity: isCurrent ? 1 : 0,
+                                transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                                transitionDelay: `${80 + wIdx * 35}ms`
+                              }}
+                            >
+                              {word}
+                            </span>
+                          </span>
+                        ))}
                       </h2>
 
-                      <p className="font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed">
-                        {chap.subtitle}
+                      <p 
+                        className="font-sans text-sm sm:text-base text-neutral-300 font-normal leading-relaxed transition-all duration-700 ease-out"
+                        style={{
+                          transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 15px, 0)',
+                          opacity: isCurrent ? 1 : 0,
+                          transitionDelay: '350ms'
+                        }}
+                      >
+                        {chap.description}
                       </p>
 
-                      <div className="space-y-2.5 pt-1">
-                        {chap.bullets.map((b, bIdx) => (
-                          <div key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-[13px] font-sans text-neutral-300">
-                            <span className="text-[#bef264] font-mono mt-0.5 select-none">›</span>
-                            <span>{b}</span>
+                      {/* 3 Client Benefit Cards */}
+                      <div 
+                        className="space-y-2.5 pt-1 transition-all duration-700 ease-out"
+                        style={{
+                          transform: isCurrent ? 'translate3d(0, 0, 0)' : 'translate3d(0, 20px, 0)',
+                          opacity: isCurrent ? 1 : 0,
+                          transitionDelay: '450ms'
+                        }}
+                      >
+                        {chap.benefits.map((b, bIdx) => (
+                          <div key={bIdx} className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] flex items-start gap-3">
+                            <CheckCircle2 className="w-4 h-4 text-[#bef264] mt-0.5 shrink-0" />
+                            <div>
+                              <h4 className="font-display font-bold text-xs text-white uppercase">{b.title}</h4>
+                              <p className="text-xs font-sans text-neutral-400 mt-0.5 leading-snug">{b.desc}</p>
+                            </div>
                           </div>
                         ))}
                       </div>
 
-                      {/* Action Launchpad: Direct Section & Resume Triggers */}
-                      <div className="pt-3 flex flex-wrap items-center gap-4">
+                      {/* Primary Action Buttons */}
+                      <div className="pt-2 flex flex-wrap items-center gap-4">
                         <a
                           href="#about"
                           className="px-6 py-3 rounded-full bg-white hover:bg-neutral-200 text-black font-display font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2 transition-colors duration-200 shadow-xl shadow-white/10"
@@ -625,23 +770,24 @@ export default function HeroSection({ onOpenResume }) {
                           className="px-5 py-3 rounded-full bg-[#ff5500] hover:bg-[#ff6c1a] text-white font-display font-bold text-xs sm:text-sm tracking-wider uppercase flex items-center gap-2 transition-colors duration-200 shadow-lg shadow-[#ff5500]/25"
                         >
                           <FileText className="w-4 h-4" />
-                          <span>VIEW RESUME / CV</span>
+                          <span>VIEW RESUME</span>
                         </button>
                       </div>
+
                     </div>
 
-                    {/* Right 6 Cols: Cloudflare Edge Constellation Vessel */}
+                    {/* Right 6 Cols: Live Platform Showcase Card */}
                     <div className="lg:col-span-6 flex justify-center">
-                      <div className="w-full p-6 sm:p-7 rounded-3xl bg-[#0b0a13] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.9)] space-y-4">
+                      <div className="w-full p-6 sm:p-7 rounded-3xl bg-[#0b0a13] border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.85)] space-y-4">
                         <div className="flex items-center justify-between pb-3 border-b border-white/10 text-xs font-mono">
                           <div className="flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                            <span className="text-white font-semibold uppercase tracking-wider">KANNUR TRAILS // CLOUDFLARE EDGE</span>
+                            <span className="text-white font-semibold uppercase tracking-wider">LIVE PLATFORM: KANNUR TRAILS</span>
                           </div>
-                          <span className="text-emerald-400 text-[10px] font-mono uppercase">PREVIEW LIVE</span>
+                          <span className="text-emerald-400 text-[10px] uppercase font-mono">EDGE PREVIEW</span>
                         </div>
 
-                        {/* Edge Platform Live Card */}
+                        {/* Minimalist Browser Frame */}
                         <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black/60">
                           <div className="flex items-center justify-between px-3.5 py-2 bg-white/[0.04] border-b border-white/[0.08] text-[11px] font-mono text-neutral-400">
                             <div className="flex items-center gap-1.5">
@@ -650,31 +796,31 @@ export default function HeroSection({ onOpenResume }) {
                               <span className="w-2 h-2 rounded-full bg-white/20" />
                             </div>
                             <span className="text-neutral-300 text-[11px]">kannurtrails.com</span>
-                            <span className="text-emerald-400 text-[10px] uppercase font-semibold">Edge 0ms Latency</span>
+                            <span className="text-emerald-400 text-[10px] uppercase font-semibold">Live Edge</span>
                           </div>
                           <img 
                             src="/projects/kannur_trails.jpg" 
-                            alt="Kannur Trails" 
+                            alt="Kannur Trails Tourism Platform" 
                             className="w-full h-44 sm:h-52 object-cover object-top"
                           />
                         </div>
 
-                        {/* Edge Infrastructure Specs */}
+                        {/* Quick Platform Metrics */}
                         <div className="grid grid-cols-2 gap-3 text-xs">
                           <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                            <span className="text-[10px] font-mono text-[#bef264] uppercase tracking-wider block mb-0.5">Global Runtime</span>
-                            <span className="text-white font-display font-bold text-xs uppercase">Cloudflare Workers</span>
-                            <p className="text-[11px] font-sans text-neutral-400 mt-0.5">D1 SQL Database</p>
+                            <span className="text-[10px] font-mono text-[#bef264] uppercase tracking-wider block mb-0.5">Platform Scope</span>
+                            <span className="text-white font-display font-bold text-xs uppercase">85 Destinations</span>
+                            <p className="text-[11px] font-sans text-neutral-400 mt-0.5">Stays & Custom Trips</p>
                           </div>
                           <div className="p-3 rounded-xl bg-white/[0.03] border border-white/[0.06]">
-                            <span className="text-[10px] font-mono text-[#bef264] uppercase tracking-wider block mb-0.5">Media & Auth</span>
-                            <span className="text-white font-display font-bold text-xs uppercase">R2 Object Store</span>
-                            <p className="text-[11px] font-sans text-neutral-400 mt-0.5">Branded PDF Engine</p>
+                            <span className="text-[10px] font-mono text-[#bef264] uppercase tracking-wider block mb-0.5">Features</span>
+                            <span className="text-white font-display font-bold text-xs uppercase">PDF Quotations</span>
+                            <p className="text-[11px] font-sans text-neutral-400 mt-0.5">Private Customer Portals</p>
                           </div>
                         </div>
 
                         <div className="pt-1 text-right">
-                          <span className="text-[11px] font-mono text-[#ff5500] font-semibold">85 Destinations · Preview Deployed</span>
+                          <span className="text-[11px] font-mono text-[#ff5500] font-semibold">Deployed on Cloudflare Workers</span>
                         </div>
                       </div>
                     </div>
@@ -690,7 +836,7 @@ export default function HeroSection({ onOpenResume }) {
         {/* ======================================================== */}
         {/* TACTILE BOTTOM TIMELINE SCRUBBER DOCK                    */}
         {/* ======================================================== */}
-        <div className="relative z-30 w-full px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 py-3.5 bg-black/65 backdrop-blur-md border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-neutral-300 pointer-events-auto">
+        <div className="relative z-30 w-full px-6 sm:px-10 md:px-14 lg:px-16 xl:px-20 py-3 bg-black/65 backdrop-blur-md border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-neutral-300 pointer-events-auto">
           
           {/* Chapter Scrubber Tabs */}
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
@@ -712,7 +858,7 @@ export default function HeroSection({ onOpenResume }) {
                 >
                   <span className={`w-1.5 h-1.5 rounded-full ${isActive ? 'bg-black' : isPast ? 'bg-[#bef264]' : 'bg-neutral-500'}`} />
                   <span>{chap.number}</span>
-                  <span className="hidden md:inline font-sans text-[11px] font-medium">
+                  <span className="font-sans text-[11px] font-medium">
                     {chap.tabLabel}
                   </span>
                 </button>
@@ -723,7 +869,7 @@ export default function HeroSection({ onOpenResume }) {
           {/* Progress Cue & Scroll Telemetry */}
           <div className="flex items-center gap-4 text-xs font-mono">
             <span className="hidden sm:inline text-neutral-400 font-sans text-[11px]">
-              Scroll down or click tabs to explore 3D story
+              Scroll down or click tabs to explore
             </span>
             <div className="px-3 py-1 rounded-full bg-white/[0.04] border border-white/10 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#ff5500]" />
